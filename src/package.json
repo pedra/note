@@ -1,0 +1,17 @@
+{
+    "name": "Note",
+    "version": "0.0.1",
+    "description": "Notes application",
+    "main": "app/app.mjs",
+    "scripts": {
+        "none": "start by ../npm start"
+    },
+    "author": "Bill Rocha <prbr@ymail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "electron-log": "^5.1.6",
+        "electron-updater": "^6.2.1",
+        "os-utils": "^0.0.14",
+        "sqlite3": "^5.1.6"
+    }
+}

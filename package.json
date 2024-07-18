@@ -1,0 +1,86 @@
+{
+	"name": "note",
+	"version": "1.0.0",
+	"description": "Notes anywhere",
+	"main": "app/app.mjs",
+	"scripts": {
+		"postinstall": "install-app-deps",
+		"build": "electron-builder --dir",
+		"dist": "electron-builder",
+		"start_linux": "export ELECTRON_ENV=1 && clear && electron src/app/app.mjs",
+		"start": "set ELECTRON_ENV=1 && cls && electron src/app/app.mjs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pedra/electronizer.git"
+	},
+	"build": {
+		"productName": "Note",
+		"appId": "com.netlify.billrocha",
+		"copyright": "Copyright © 2024 BillRocha",
+		"asar": true,
+		"compression": "maximum",
+		"directories": {
+			"output": "dist",
+			"buildResources": "pack",
+			"app": "src"
+		},
+		"extraFiles": "assets",
+		"files": [
+			"!**/desktop/assets/${/*}/src/${/*}",
+			"!**/host/public/${/*}/src/${/*}"
+		],
+		"mac": {
+			"target": [
+				"dmg",
+				"zip"
+			],
+			"category": "office"
+		},
+		"linux": {
+			"category": "Office",
+			"target": [
+				"AppImage"
+			]
+		},
+		"win": {
+			"target": [
+				"nsis"
+			],
+			"requestedExecutionLevel": "requireAdministrator",
+			"publish": {
+				"provider": "github",
+				"channel": "latest"
+			}
+		},
+		"nsis": {
+			"installerIcon": "pack/icon.ico",
+			"uninstallerIcon": "pack/icon.ico",
+			"installerSidebar": "pack/sidebar.bmp",
+			"uninstallDisplayName": "Note",
+			"license": "pack/license.txt",
+			"oneClick": false,
+			"allowToChangeInstallationDirectory": true
+		}
+	},
+	"keywords": [
+		"electron",
+		"windows",
+		"native",
+		"cover",
+		"bases",
+		"skeleton"
+	],
+	"author": "Bill Rocha <prbr@ymail.com>",
+	"url": "https://billrocha.netlify.com",
+	"funding": "https://billrocha.netlify.com",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/pedra/electronizer/issues"
+	},
+	"homepage": "https://github.com/pedra/electronizer#readme",
+	"devDependencies": {
+		"electron": "^31.2.1",
+		"electron-builder": "^24.13.3"
+	}
+}
