@@ -6,7 +6,7 @@ import path from 'node:path'
 import IpcHandler from './ipchandler.mjs'
 //import Cpu from './cpu.mjs'
 
-import User from './db/user.mjs'
+import { User, Users } from './db/user.mjs'
 
 class App {
 	static instance = null
@@ -63,10 +63,10 @@ class App {
 	✔ TODOS PASSARAM ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
 */
 
-		// const user = new User()
+		//  const user = new User()
 
-		// const login = await user.login('prbr@ymail.com', '12345678')
-		// console.log("\n\n\nLogin: ", login, "\n\n\n")
+		//  const login = await user.login('prbr@ymail.com', '12345678')
+		//  console.log("\n\n\nLogin: ", login, "\n\n\n")
 
 		// // Insert
 		// user.clear()
@@ -90,8 +90,11 @@ class App {
 		// console.log("\n\nLoadByEmail: ", loadByEmail, "\n\n\n")
 
 		// user.load(7)
-		// const del = await user.del()
+		// const del = await user.delete()
 		// console.log("\n\nDelete: ", del, "\n\n\n")
+
+		// const unDelete = await user.unDelete()
+		// console.log("\n\nUnDelete: ", unDelete, "\n\n\n")
 
 /* 
 
@@ -102,6 +105,14 @@ class App {
 	3 - Deve ter busca em campo genérico (campo que ainda não existe nessa tabela USER [future])
 
 */
+
+		 const users = new Users()
+		 const list = await users.load()
+		 console.log("USERS LOAD:", list) // ✔ PASSOU!!
+
+		// const query = await users.search(33, ['level'])
+		// console.log("USERS SEARCH:", query) // ✔ PASSOU!!
+
 	}
 
 	// EVENTS --------------------------------------------------------------------------------------------------------*/
