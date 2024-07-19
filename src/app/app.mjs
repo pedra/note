@@ -106,9 +106,9 @@ class App {
 
 */
 
-		 const users = new Users()
-		 const list = await users.load()
-		 console.log("USERS LOAD:", list) // ✔ PASSOU!!
+		//  const users = new Users()
+		//  const list = await users.load()
+		//  console.log("USERS LOAD:", list) // ✔ PASSOU!!
 
 		// const query = await users.search(33, ['level'])
 		// console.log("USERS SEARCH:", query) // ✔ PASSOU!!
