@@ -1,4 +1,4 @@
-import { app, Tray, Menu, ipcMain } from 'electron'
+import { app, globalShortcut } from 'electron'
 import Windows from './windows.mjs'
 import Menus from './menus/menus.mjs'
 import path from 'node:path'
@@ -59,12 +59,26 @@ class App {
 		this.menus.loadTray()
 		this.menus.loadMenu()
 		this.menus.loadJumplist()
-		//this.menus.loadThumbar('main')
+		this.menus.loadThumbar('main')
+		/**
+		 * ATT: quando abre a janela na inicialização, a Thumbar funciona.
+		 * Ao fechar a janela e reabri-la, a Thumbar desaparece (teria que chamar novamente?!)
+		 * Por outro lado, a Jumplist funcionou de forma invertida.
+		 * 
+		 * TODO: Testar...
+		 */
+
+		// Registra atalho global CTRL + ALT + I
+		globalShortcut.register('Alt+CommandOrControl+I', () => {
+			const win = this.windows.get('main')
+			win.show()
+			win.focus()
+		})
 
 
 
-		
-/*  TODO: Testar User!
+
+/*  TODO: #### MOVER PARA OUTRO ARQUIVO 🟡🟡🟡🟡🟡🟡🟡
 
 	* Carregar (load + loadByEmail) ...
 	* Inserir (insert) ...

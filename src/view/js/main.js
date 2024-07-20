@@ -19,6 +19,8 @@ window.onload = () => {
 		console.log('Menu: ', e, show)
 		_('#tb-title-bar').classList[show ? 'remove' : 'add']('on')
 	})
+
+	_('#search').focus()
 }
 
 const showMenu = show => ipcRenderer.invoke('menu', { window: 'about', show }) // ?!?!

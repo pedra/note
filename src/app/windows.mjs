@@ -15,7 +15,7 @@ class Windows {
 		fullscreenable: false,
 		maximizable: false,
 
-		show: false,
+		show: true,
 		paintWhenInitiallyHidden: false,
 		icon: '',
 

@@ -19,7 +19,7 @@ header {
 	-webkit-app-region: drag;
 }
 
-
+.search ,
 .control {
 	display:flex;
 	gap: 1rem;
@@ -33,6 +33,11 @@ button {
 	box-shadow: 0 0 5px rgba(0,0,0,0.4);
 	    background: #333;
     color: #fff;
+}
+
+input {
+	padding: 1rem;
+	font-size: 1rem;
 }
 
 

@@ -66,8 +66,9 @@ const menu = [
 				description: 'Abrir as notas do projeto.'
 			}
         ]
-    },
-    { type: 'frequent' },
+	},
+	// { type: 'recent' },
+    // { type: 'frequent' },
     { // has no name and no type so `type` is assumed to be "tasks"
         items: [
             {
@@ -86,8 +87,7 @@ const menu = [
                 description: 'Recover Project'
             }
         ]
-    }, 
-	{ type: 'recent' }
+    }
 ]
 
 export default menu
