@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Sample Electronizer application">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Electronizer : About</title>
+
+    <link rel="stylesheet" href="../css/src/theme-light.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/src/style.css">
+
+    <style>
+        .tb-title-bar {
+            -webkit-user-select: none;
+            -webkit-app-region: drag;
+            position: relative;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: .2rem .5rem;
+            font-size: 1rem;
+            color: var(--color-3);
+            background: var(--white-1);
+            border-bottom: 1px solid var(--white-3);
+        }
+
+        .tb-title-bar .tb-left,
+        .tb-title-bar .tb-title,
+        .tb-title-bar .tb-title-a,
+        .tb-title-bar .tb-title-b,
+        .tb-title-bar .tb-right,
+        .tb-title-bar.on,
+        .att {
+            display: flex;
+            align-items: center;
+        }
+
+        .tb-title-bar .tb-left {
+            flex: 1;
+        }
+
+        .tb-title-bar .tb-logo {
+            width: 1.3rem;
+            margin: 0 .8rem 0 .4rem;
+        }
+
+        .tb-title-bar .tb-title {
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        .tb-title-bar .tb-title-a {
+            font-weight: bold;
+            margin-right: .5rem;
+        }
+
+        .tb-title-bar .tb-title-b {
+            border-left: 1px solid var(--color-5);
+            padding: 0 0 0 .5rem;
+        }
+
+        .tb-title-bar .tb-right {
+            -webkit-app-region: none;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .tb-title-bar .tb-right i {
+            padding: .3rem .5rem;
+            color: var(--white-5);
+            font-size: 1.5rem;
+        }
+
+        .tb-title-bar .tb-right i:hover {
+            color: var(--color-3);
+        }
+
+        .att {
+            font-style: italic;
+            font-size: .9rem;
+            color: var(--color-4);
+        }
+
+        .att i {
+            font-size: 1rem;
+            margin: 0 .5rem 0 0;
+        }
+    </style>
+
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+
+<body>
+
+    <div class="tb-title-bar" id="tb-title-bar">
+        <div class="tb-left">
+            <img src="../img/tray/icon32.png" alt="logo" class="tb-logo" id="tb-logo">
+            <div class="tb-title" id="tb-title">
+                <div class="tb-title-a" id="tb-title-a">Electronizer</div>
+                <div class="tb-title-b" id="tb-title-b">Título da Página Ativa</div>
+            </div>
+        </div>
+        <div class="tb-right">
+            <i class="material-icons" title="Usuários" onclick="teste()">person_outline</i>
+            <i class="material-icons" title="Mensagens">chat</i>
+            <i class="material-icons" title="Configurações">tune</i>
+            <i class="material-icons" title="Fechar" onclick="winClose()">close</i>
+        </div>
+    </div>
+
+
+    <div class="page">
+        <div class="container">
+
+            <h1>Electronizer</h1>
+            <p>Structure to start an Electron project.</p>
+
+            <p><a href="https://github.com/pedra/electronizer" rel="github">Project Github</a></p>
+
+            <h2>Trocar Layout</h2>
+            <p>Mostrar ou esconder o menu e o frame da janela atual</p>
+            <div class="att"><i class="material-icons">info</i> Isso forçará o recarregamento da janela e perda de
+                dados
+                não salvos.</i></div>
+            <div class="control border">
+                <button type="button" onclick="showMenu(true)">Mostra menu</button>
+                <button type="button" onclick="showMenu(false)">Ocultar menu</button>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span id="status-msg">Electronizer</span>
+            <span id="status-mem">Mem 0%</span>
+            <span id="status-cpu">CPU 0%</span>
+        </div>
+</body>
+
+</html>

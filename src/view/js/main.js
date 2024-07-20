@@ -21,8 +21,6 @@ window.onload = () => {
 	})
 }
 
-const showMenu = show => ipc.invoke('menu', { window: 'about', show })
-
-const winClose = () => ipc.invoke('close', 'about')
-
-const teste = () => console.log('TESSSSTEEEEE')
+const showMenu = show => ipcRenderer.invoke('menu', { window: 'about', show }) // ?!?!
+const winClose = () => ipcRenderer.invoke('close', 'main')
+const appExit = () => ipcRenderer.invoke('appExit')

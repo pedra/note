@@ -2,6 +2,7 @@
     "name": "Note",
     "version": "0.0.1",
     "description": "Notes application",
+	"type": "module", 
     "main": "app/app.mjs",
     "scripts": {
         "none": "start by ../npm start"

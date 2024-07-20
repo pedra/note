@@ -1,12 +1,3 @@
-/*
-	Electronizer
-
-	Copyright (c) 2021, Bill Rocha
-	Developer: Bill Rocha <prbr@ymail.com> | billrocha.netlify.com
-	Git: https://github.com/pedra/electronizer
-
- */
-
 import { app, BrowserWindow } from 'electron'
 import App from './app.mjs'
 
@@ -33,6 +24,9 @@ class Windows {
 		darkTheme: true,
 		opacity: 1,
 
+		// titleBarStyle: 'hidden',
+		// titleBarOverlay: true,
+
 		parent: false,
 
 		webPreferences: {
@@ -45,10 +39,7 @@ class Windows {
 
 	downloadUrl = "https://billrocha.netlify.com"
 
-	constructor() {
-		
-	}
-
+	constructor() {}
 
 	static getInstance() {
 		if (!Windows.instance) {

@@ -1,7 +1,7 @@
 
 import os from 'os-utils'
 import { app, ipcMain } from 'electron'
-import Windows from './windows.mjs'
+import Windows from '../windows.mjs'
 
 export default class Cpu {
 

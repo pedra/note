@@ -1,12 +1,12 @@
 import { app, Tray, Menu, ipcMain } from 'electron'
 import Windows from './windows.mjs'
-import TemplateTray from './templateTray.mjs'
-import { readFileSync, existsSync } from 'node:fs'
+import Menus from './menus/menus.mjs'
 import path from 'node:path'
-import IpcHandler from './ipchandler.mjs'
-//import Cpu from './cpu.mjs'
+import Ipc from './ipc.mjs'
 
+// Teste com DB SqLite ------------------------- deletar (begin)
 import { User, Users } from './db/user.mjs'
+// Teste com DB SqLite ------------------------- deletar (end)
 
 class App {
 	static instance = null
@@ -15,19 +15,23 @@ class App {
 		app: null,
 		assets: null,
 		view: null,
-		db: null
+		db: null,
+		config: null,
 	}
 	windows = null
+	menus = null
 	ipc = null
 
 	constructor() {
 		this.path.app = path.resolve(process.env['ELECTRON_ENV'] == 1 ? './src' : './resources/app.asar')
 		this.path.view = this.path.app + '/view'
 		this.path.assets = path.resolve('./assets')
-		this.path.db = this.path.assets + '/db/database.db'	
+		this.path.db = this.path.assets + '/db/database.db'
+		this.path.config = this.path.app + '/config'	
 
 		this.windows = Windows.getInstance()
-		this.ipc = new IpcHandler()
+		this.menus = Menus.getInstance()
+		this.ipc = new Ipc()
 		app.on('ready', (e) => this.init(e));
 
 		if (!app.requestSingleInstanceLock()) app.quit()
@@ -50,7 +54,15 @@ class App {
 
 	async init(e) {
 		this.windows.create('main')
-		this.setTray()
+
+		// Menus
+		this.menus.loadTray()
+		this.menus.loadMenu()
+		this.menus.loadJumplist()
+		//this.menus.loadThumbar('main')
+
+
+
 		
 /*  TODO: Testar User!
 
@@ -115,39 +127,23 @@ class App {
 
 	}
 
-	// EVENTS --------------------------------------------------------------------------------------------------------*/
+	// EVENTS ------------------------------------------------------------------
 	onWindowAllClosed(e){
-		console.log('\nTodas as janelas foram fechadas - window-all-closed\n')
 		e.preventDefault()
+		console.log('\nTodas as janelas foram fechadas - window-all-closed\n')
 	}
 
 	onQuit(e){
-		console.log("---> Quit!")
-
-		// Destroy Tray
-		this.tray.destroy()
+		console.log("---> Quit!")		
+		this.menus.getTray().destroy() // Destroy Tray
 	}
 
 	onWillQuit(e) {
-		console.log('Antes de fechar tudo - will-quit')
 		e.preventDefault()
+		console.log('Antes de fechar tudo - will-quit')
 
-		// TESTE .... 
-		//setTimeout(() => { app.exit() }, 100)
+		// Additional tasks before leaving...here!
 		app.exit()
-	}
-
-
-	// TRAY ----------------------------------------------------------------------------------------------------------*/
-	getTray() {
-		return this.tray
-	}
-	setTray() {
-		this.tray = new Tray(this.path.view + '/img/tray/icon.png')
-		this.tray.setContextMenu(Menu.buildFromTemplate(TemplateTray.getTemplate()))
-		this.tray.setToolTip('Título da Aplicação')
-		this.tray.on('click', () => this.windows.get('main').show())
-		this.tray.on('balloon-click', () => console.log('Clicou no balloon | main.ts:37'))
 	}
 }
 
