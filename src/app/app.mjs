@@ -1,6 +1,7 @@
 import { app, globalShortcut } from 'electron'
 import Windows from './windows.mjs'
 import Menus from './menus/menus.mjs'
+import Server from '../net/server.mjs'
 import path from 'node:path'
 import Ipc from './ipc.mjs'
 
@@ -16,10 +17,11 @@ class App {
 		assets: null,
 		view: null,
 		db: null,
-		config: null,
+		net: null,
 	}
 	windows = null
 	menus = null
+	server = null
 	ipc = null
 
 	constructor() {
@@ -27,10 +29,11 @@ class App {
 		this.path.view = this.path.app + '/view'
 		this.path.assets = path.resolve('./assets')
 		this.path.db = this.path.assets + '/db/database.db'
-		this.path.config = this.path.app + '/config'	
+		this.path.net = this.path.app + '/net'	
 
 		this.windows = Windows.getInstance()
 		this.menus = Menus.getInstance()
+		this.server = Server.getInstance()
 		this.ipc = new Ipc()
 		app.on('ready', (e) => this.init(e));
 
@@ -53,6 +56,7 @@ class App {
 	}
 
 	async init(e) {
+		this.server.init(null, null, null, false).start()
 		this.windows.create('main')
 
 		// Menus

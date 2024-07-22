@@ -1,0 +1,53 @@
+:root {
+    --color1: #b71c1c;
+    --color2: #3f51b5;
+    --color3: #f4511e;
+    --color4: #889900;
+    --color5: #040086;
+    --color6: #f4511e;
+
+    /* TEXT/BACKGROUND */
+    --text: #222222;
+    --bg: #f4f4f4;
+
+    /* TEXT/BACKGROUND INVERTED */
+    --text-1: #f1f1f1;
+    --bg-1: #681010;
+
+    /* LIGHT SCALE */
+    --white: #ffffff;
+    --light-17: #f9f9f9;
+    --light-16: #f4f4f4;
+    --light-15: #f1f1f1;
+    --light-14: #eeeeee;
+    --light-13: #dddddd;
+    --light-12: #cccccc;
+    --light-11: #bbbbbb;
+    --light-10: #aaaaaa;
+    --light-9: #999999;
+    --light-8: #888888;
+    --light-7: #777777;
+    --light-6: #666666;
+    --light-5: #555555;
+    --light-4: #444444;
+    --light-3: #333333;
+    --light-1: #222222;
+    --light-0: #111111;
+    --black: #000000;
+
+    /* ELEVATION */
+    --elevation-1: 0 0 2px rgba(0, 0, 0, 0.2);
+    --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.2);
+    --elevation-3: 0 6px 12px rgba(0, 0, 0, 0.2);
+    --elevation-4: 0 10px 20px rgba(0, 0, 0, 0.4);
+    --elevation-5: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --elevation-6: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+    /* RADIUS */
+    --radius: 4px;
+    --radius-1: 8px;
+    --radius-2: 1rem;
+    --radius-3: 1.5rem;
+    --radius-4: 2rem;
+    --radius-5: 50%;
+}

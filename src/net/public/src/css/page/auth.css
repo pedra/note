@@ -1,0 +1,30 @@
+.page.auth .container {
+    justify-content: center;
+}
+
+.aut {
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN FORM 
+------------------------------------------------------ */
+.aut-form {
+    max-width: 230px;
+    width: 100%;
+}
+
+.aut-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 3rem 0;
+}
+
+.aut-logo i {
+    font-size: 5.3rem;
+}
+
+.aut-logo svg {
+    border-radius: 50%;
+}

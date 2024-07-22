@@ -1,0 +1,229 @@
+*,
+*:before,
+*:after {
+    outline: none;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+html,
+body,
+button,
+input,
+select,
+label,
+table,
+textarea {
+    font-size: 16px;
+    /* font-family: Roboto; */
+    /* font-family: 'Open Sans Condensed'; */
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", system-ui, Roboto,
+        "Helvetica Neue", Ubuntu, Tahoma, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html,
+body {
+    /* height: 100vh; */
+    background-size: cover;
+    background: var(--white-2);
+    color: var(--text);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100vh;
+}
+
+hr {
+    clear: both;
+}
+
+sup {
+    margin: -0.2rem 0.1rem 0 0;
+    font-size: 0.7rem;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--text);
+    text-shadow: none;
+    /* text-align: center; */
+}
+
+p {
+    color: var(--text);
+    text-shadow: none;
+    clear: both;
+}
+
+table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
+    height: auto;
+    margin: 0;
+    border: none;
+    border-collapse: inherit;
+    border-spacing: 0;
+    border-color: inherit;
+    text-align: left;
+    font-weight: inherit;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
+
+table {
+    width: 100%;
+}
+
+table td,
+th {
+    border: none;
+    padding: .2rem .5rem .2rem 0;
+}
+
+
+.container {
+    min-width: 200px;
+    max-width: 768px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+/* Utils
+------------------------------------------------- */
+.hide {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.loader {
+    animation: rotating .5s linear infinite;
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+
+
+/** BUTTON
+----------------------------------------- */
+button {
+    transition: 0.4s;
+    min-width: 5rem;
+    min-height: 2.5rem;
+    cursor: pointer;
+    background: var(--color-2);
+    border: none;
+    border-radius: var(--radius);
+    color: var(--white);
+    text-shadow: none;
+    box-shadow: var(--elevation-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    color: var(--white);
+    background: var(--color-4);
+}
+
+button .material-icons {
+    font-size: 1.3rem;
+    margin: 0.2rem 0.5rem 0 0;
+}
+
+button.btn {}
+
+button.btn-secondary {
+    color: var(--white);
+    background: var(--color-3);
+}
+
+button.btn-danger {
+    color: var(--white);
+    background: var(--color-1);
+}
+
+button.btn-flat {
+    color: var(--color-1);
+    background: none;
+    box-shadow: none;
+}
+
+.control {
+    display: flex;
+    margin: 1rem 0 0 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.control.left {
+    justify-content: flex-start;
+}
+
+.control.right {
+    justify-content: flex-end;
+}
+
+/** INPUT
+----------------------------------------- */
+
+label {
+    font-size: .95rem;
+    margin: 0.5rem 0;
+    padding: 0 0 0 0.5rem;
+    display: block;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+select,
+textarea {
+    background: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: 0px 1px 1px 1px rgb(0 0 0 / 10%);
+    padding: 0.5rem;
+    margin: 0 0 1rem 0;
+    width: 100%;
+    min-height: 2.5rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    float: left;
+    margin: 0.2rem 0.5rem 0 0;
+    -moz-appearance: auto;
+    -webkit-appearance: auto;
+    appearance: auto;
+}
+
+input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    margin: 0;
+}

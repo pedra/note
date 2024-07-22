@@ -1,0 +1,65 @@
+.bmenu {
+    position: fixed;
+    display: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 78px;
+    z-index: 600;
+    border-top: var(--color-4) 2px solid;
+    background: var(--color-5);
+    color: var(--color-4);
+    user-select: none;
+}
+
+.bmenu.on {
+    display:flex;
+}
+
+.bmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bmenu ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.bmenu ul li span {
+    font-size: .8rem;
+}
+
+.bmenu ul li.on {
+    color: var(--color-3);
+}
+
+@media screen and (min-width: 480px) {
+	.bmenu ul {
+		width: 300px;
+		margin: auto;
+	}
+}
+
+
+@media screen and (min-width: 600px) {
+
+.bmenu ul {
+		width: 500px;
+}
+
+	.bmenu ul li span {
+    font-size: 1rem;
+}
+.bmenu ul li i {
+    font-size: 2rem;
+}
+}

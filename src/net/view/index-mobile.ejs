@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronizer</title>
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#bdbd00">
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Electronizer">
+    <meta name="application-name" content="Electronizer">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="/icon/browserconfig.xml">
+    <meta name="theme-color" content="#bdbd00"> -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#9f00a7">
+    <meta name="msapplication-config" content="/icon/browserconfig.xml">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/theme-default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/report.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/file.css">
+
+    <script src="js/src/global.js" defer></script>
+    <script src="js/src/config.js" defer></script>
+    <script src="js/src/lib/storage.js" defer></script>
+    <script src="js/src/lib/event.js" defer></script>
+    <script src="js/src/lib/page.js" defer></script>
+    <script src="js/src/ctrl/home.js" defer></script>
+    <script src="js/src/ctrl/user.js" defer></script>
+    <script src="js/src/ctrl/file.js" defer></script>
+    <script src="js/src/lib/chat.js" defer></script>
+
+    <script src="js/src/vendor/socket.io.min.js" defer></script>
+
+    <script src="js/src/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div> <i class="material-icons">blur_on</i> Electronizer</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page empty" id="pg-empty">
+                <img src="/img/l.gif" alt="loadind...">
+            </div>
+            <%- include('part/home') %>
+            <%- include('part/user') %>
+            <%- include('part/chat') %>
+            <%- include('part/file') %>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <ul class="bmenu">
+                <li onclick="Page.preview()"><i class="material-icons">arrow_back</i><span>Voltar</span></li>
+                <li onclick="Page.go('home')"><i class="material-icons">home</i><span>Home</span></li>
+                <li><i class="material-icons">publish</i><span>UpLoad</span></li>
+                <li><i class="material-icons">delete</i><span>Excluir</span></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+:root {
+    --color-1: #242352;
+    --color-2: #3B3A67;
+    --color-3: #4B4A89;
+    --color-4: #9D9CC9;
+    --color-5: #E1E1EC;
+    --color-6: #FF0000;
+    --color-7: #0EB400;
+    --color-8: #ef6c00;
+
+    /* TEXT/BACKGROUND */
+    --text: #3B3A67;
+    --bg: #f4f4f4;
+
+    /* TEXT/BACKGROUND INVERTED */
+    --text-inverted: #F4F4F4;
+    --bg-inverted: #242352;
+
+    /* LIGHT SCALE */
+    --white: #FFFFFF;
+    --white-1: #F4F4F4;
+    --white-2: #E5E5E5;
+    --white-3: #BFBCBC;
+    --white-4: #B1B1B1;
+    --black: #000000;
+
+    /* ELEVATION */
+    --elevation-1: 0 0 2px rgba(0, 0, 0, 0.2);
+    --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.2);
+    --elevation-3: 0 6px 12px rgba(0, 0, 0, 0.2);
+    --elevation-4: 0 10px 20px rgba(0, 0, 0, 0.4);
+    --elevation-5: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --elevation-6: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+    /* RADIUS */
+    --radius: 4px;
+    --radius-1: 8px;
+    --radius-2: 1rem;
+    --radius-3: 1.5rem;
+    --radius-4: 2rem;
+    --radius-50: 50%;
+}

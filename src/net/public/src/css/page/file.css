@@ -1,0 +1,160 @@
+.page.file {}
+
+.page.file .container {
+    padding-bottom: 4rem;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    width: 100%;
+    border-bottom: 1px solid var(--color-4);
+}
+
+.breadcrumbs i {
+    font-size: 1.7rem;
+    margin: 0;
+    padding: .5rem;
+    cursor: pointer;
+    min-width: 43px;
+    text-align: center;
+}
+
+.breadcrumbs .file-path {
+    font-size: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs a {
+    cursor: pointer;
+}
+
+.breadcrumbs a:hover {
+    border-bottom: 1px solid var(--color2)
+}
+
+.file-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 .5rem;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    margin: 1px 0;
+    cursor: pointer;
+}
+
+.file-item:hover,
+.file-item.on {
+    background: var(--color-5);
+}
+
+.file-item i {
+    color: #607d8b;
+    font-size: 28px;
+    margin: 0 .5rem 0 0;
+}
+
+.file-item.folder i {
+    color: #ffc107;
+}
+
+.file-item.image i {
+    color: #8bc34a;
+}
+
+.file-item.video i {
+    color: #1976d2;
+}
+
+.file-info {}
+
+.file-name {
+    font-weight: 500;
+}
+
+.file-data {
+    font-size: .7rem;
+    color: var(--black);
+    opacity: .6;
+}
+
+/* ACTION MENU ------------------------------------------- */
+.file-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 1;
+}
+
+.file-menu.on {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+}
+
+.file-menu-content {
+    position: absolute;
+    background: var(--color-3);
+    color: var(--text-inverted);
+    padding: 0;
+    top: 5rem;
+    margin: -70px 1rem 0 1rem;
+    transform-style: preserve-3d;
+    z-index: -100;
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, 60deg) perspective(100px);
+    transition: .3s;
+    border-radius: var(--radius-1);
+    box-shadow: var(--elevation-6);
+    max-width: 400px;
+    min-width: 260px;
+    user-select: none;
+}
+
+.file-menu.on .file-menu-content {
+    transition: .3s;
+    top: 8rem;
+    opacity: 1;
+    z-index: 1000;
+    transform: none;
+}
+
+.file-menu-title {
+    background: var(--color-2);
+    padding: 1rem;
+    border-radius: var(--radius-1);
+}
+
+.file-menu-control {
+    display: flex;
+    padding: 0 .5rem;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.file-menu-control li {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5rem;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.file-menu-control li span {
+    font-size: .7rem;
+}

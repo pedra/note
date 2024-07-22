@@ -1,0 +1,82 @@
+.page.notify {}
+
+.ntf-card {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    width: 100%;
+    padding: .5rem 1rem;
+    margin: .1rem 0;
+    cursor: pointer;
+}
+
+.ntf-card.on {
+    background: var(--color-5)
+}
+
+.ntf-card.empty {
+    justify-content: center;
+    padding: 2rem 1rem;
+    color: var(--color-6);
+}
+
+.ntf-card .avatar {
+    width: 38px;
+}
+.ntf-card .avatar img {
+    width: 100%;
+    border-radius: var(--radius-50);
+}
+
+.ntf-card .data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+    padding: 0 .5rem;
+}
+
+.ntf-card .data h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--color-2);
+}
+
+.ntf-card .data .props {
+    font-size: .8rem;
+    color: var(--color-4);
+}
+
+.ntf-card .data .props .status {
+    border-right: 1px solid var(--color-4);
+    padding: 0 .5rem 0 0;
+    margin: 0 .5rem 0 0;
+    color: var(--color-6);
+}
+
+.ntf-card .data .props .status.on {
+    color: var(--color-7);
+}
+
+.ntf-card .data .props .notify {}
+
+.ntf-card .icon {
+    color: var(--color-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ntf-card.on .icon {
+    color: var(--white);
+}
+
+.ntf-card .icon.on {
+    color: var(--color-7);
+}
+
+.ntf-card .icon i {
+}

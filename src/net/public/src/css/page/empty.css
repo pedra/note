@@ -1,0 +1,15 @@
+.page.empty .container {
+    justify-content: center;
+}
+
+.page.empty img {
+    border-radius: var(--radius-50);
+    width: 3rem;
+}
+
+.page.empty span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem .5rem;
+}
