@@ -10,7 +10,7 @@ class Windows {
 		minWidth: 370,
 		maxWidth: 1800,
 		height: 720,
-		minHeight: 640,
+		minHeight: 370,
 		center: true,
 		fullscreenable: false,
 		maximizable: false,
@@ -24,8 +24,8 @@ class Windows {
 		darkTheme: true,
 		opacity: 1,
 
-		// titleBarStyle: 'hidden',
-		// titleBarOverlay: true,
+		titleBarStyle: 'show',
+		titleBarOverlay: false,
 
 		parent: false,
 

@@ -2,11 +2,11 @@ const { ipcRenderer } = require('electron')
 let contador = 0
 window.onload = () => {
 
-	const ping = setInterval(() => {
-		ipcRenderer.invoke('ping').then(r => { console.log("Ping: ", r) })
-		contador++
-		_('#status-msg').innerHTML = 'Ping - ' + contador
-	}, 1000)
+	// const ping = setInterval(() => {
+	// 	ipcRenderer.invoke('ping').then(r => { console.log("Ping: ", r) })
+	// 	contador++
+	// 	_('#status-msg').innerHTML = 'Ping - ' + contador
+	// }, 1000)
 
 	ipcRenderer.on('cpu', (e, data) => {
 		i = JSON.parse(data)

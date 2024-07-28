@@ -1,4 +1,4 @@
-import { app, globalShortcut } from 'electron'
+import { app, globalShortcut, screen } from 'electron'
 import Windows from './windows.mjs'
 import Menus from './menus/menus.mjs'
 import Server from '../net/server.mjs'
@@ -29,7 +29,7 @@ class App {
 		this.path.view = this.path.app + '/view'
 		this.path.assets = path.resolve('./assets')
 		this.path.db = this.path.assets + '/db/database.db'
-		this.path.net = this.path.app + '/net'	
+		this.path.net = this.path.app + '/net'
 
 		this.windows = Windows.getInstance()
 		this.menus = Menus.getInstance()
@@ -57,7 +57,10 @@ class App {
 
 	async init(e) {
 		this.server.init(null, null, null, false).start()
-		this.windows.create('main')
+		this.windows.create('main', { // no frame window
+			titleBarStyle: 'hidden',
+			titleBarOverlay: true,
+		})
 
 		// Menus
 		this.menus.loadTray()
@@ -73,8 +76,23 @@ class App {
 		 */
 
 		// Registra atalho global CTRL + ALT + I
-		globalShortcut.register('Alt+CommandOrControl+I', () => {
+		globalShortcut.register('Alt+CmdOrCtrl+Space', () => {
+			let cursor = screen.getCursorScreenPoint()
+			let x = cursor.x
+			let y = cursor.y
+
+			let display = screen.getPrimaryDisplay()
+			let w = display.workAreaSize.width
+			let h = display.workAreaSize.height
+
 			const win = this.windows.get('main')
+			const [width = 400, height = 300] = win.getSize()
+			if (x >= w - width) x = w - width
+			if (y >= (h - height)) y = h - height
+			if (y < 30) y = 40
+
+			win.setSize(width, height)
+			win.setPosition(x, y)
 			win.show()
 			win.focus()
 		})
@@ -82,16 +100,16 @@ class App {
 
 
 
-/*  TODO: #### MOVER PARA OUTRO ARQUIVO 🟡🟡🟡🟡🟡🟡🟡
-
-	* Carregar (load + loadByEmail) ...
-	* Inserir (insert) ...
-	* Atualizar (update) ...
-	* Deletar (delete) ...
-	* Autenticação (login) ...
-
-	✔ TODOS PASSARAM ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
-*/
+		/*  TODO: #### MOVER PARA OUTRO ARQUIVO 🟡🟡🟡🟡🟡🟡🟡
+		
+			* Carregar (load + loadByEmail) ...
+			* Inserir (insert) ...
+			* Atualizar (update) ...
+			* Deletar (delete) ...
+			* Autenticação (login) ...
+		
+			✔ TODOS PASSARAM ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
+		*/
 
 		//  const user = new User()
 
@@ -126,15 +144,15 @@ class App {
 		// const unDelete = await user.unDelete()
 		// console.log("\n\nUnDelete: ", unDelete, "\n\n\n")
 
-/* 
-
-	TODO: Criar classe Users (plural) e testar. 
-
-	1 - Deve retornar uma array de User
-	2 - Ter funções de busca (por nome, level, email) 
-	3 - Deve ter busca em campo genérico (campo que ainda não existe nessa tabela USER [future])
-
-*/
+		/* 
+		
+			TODO: Criar classe Users (plural) e testar. 
+		
+			1 - Deve retornar uma array de User
+			2 - Ter funções de busca (por nome, level, email) 
+			3 - Deve ter busca em campo genérico (campo que ainda não existe nessa tabela USER [future])
+		
+		*/
 
 		//  const users = new Users()
 		//  const list = await users.load()
@@ -146,13 +164,13 @@ class App {
 	}
 
 	// EVENTS ------------------------------------------------------------------
-	onWindowAllClosed(e){
+	onWindowAllClosed(e) {
 		e.preventDefault()
 		console.log('\nTodas as janelas foram fechadas - window-all-closed\n')
 	}
 
-	onQuit(e){
-		console.log("---> Quit!")		
+	onQuit(e) {
+		console.log("---> Quit!")
 		this.menus.getTray().destroy() // Destroy Tray
 	}
 

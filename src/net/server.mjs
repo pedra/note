@@ -6,7 +6,7 @@ import App from '../app/app.mjs'
 /**
  * TODO: Rescrever tudo para módulo - back & front
  * 
- * 		- User o arquivo /net/module/test.mjs como modelo
+ * 		- Use o arquivo /net/module/test.mjs como modelo
  * 		- Ver arquivo /view/js/_new_utils.js - transpor para /net/public/js/utils.js
 *  		- O acesso ao core do Electron (/app/app.mjs) é feito internamente por "import"
 
