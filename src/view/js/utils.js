@@ -133,12 +133,14 @@ const __crpt = (i, g) => {
  * @returns void
  */
 
-const __post = (url, data) => __req(url, data, 'POST')
-const __get = (url, data) => __req(url, data, 'GET')
-const __req = (url, data, mtd) => {
+const __post = async (url, data) => __req(url, data, 'POST')
+const __get = async (url, data) => __req(url, data, 'GET')
+const __req = async (url, data, mtd) => {
 
-    if ("undefined" != typeof data && (data == null || "object" != typeof data)) data = { data: data }
-    if (url != null && "object" == typeof url) url = __u(url.url) + '/' + encodeURIComponent(JSON.stringify(url.param))
+    if ("undefined" != typeof data && (data == null || "object" != typeof data)) 
+		data = { data: data }
+    if (url != null && "object" == typeof url) 
+		url = __u(url.url) + '/' + encodeURIComponent(JSON.stringify(url.param))
 
     let req = {
         headers: new Headers({
@@ -157,10 +159,12 @@ const __req = (url, data, mtd) => {
         url = url + (!data ? '' : '/' + encodeURIComponent(JSON.stringify(data)))
     }
 
-    return fetch(url, req)
-        .then(a => (a.status != 200) ? false : a.json())
-        .then(data => data)
-        .catch(error => error)
+    try {
+		const a = await fetch(url, req)
+		return (a.status != 200) ? false : await a.json()
+	} catch (error) {
+		return false
+	}
 }
 
 // Pega as iniciais do nome ou do nome + sobrenome (último nome)

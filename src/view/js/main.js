@@ -21,8 +21,13 @@ window.onload = () => {
 	})
 
 	_('#search').focus()
+	setTimeout(() => _('#search').focus(), 200)
 }
 
 const showMenu = show => ipcRenderer.invoke('menu', { window: 'about', show }) // ?!?!
 const winClose = () => ipcRenderer.invoke('close', 'main')
 const appExit = () => ipcRenderer.invoke('appExit')
+const wins = () => {
+	__report('Carregando janelas...', true, 1000000000)
+	ipcRenderer.invoke('wins')
+}

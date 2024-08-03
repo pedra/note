@@ -81,13 +81,22 @@ export default class Menus {
 			this.#_menus.tray.setToolTip(tooltip || 'Note')
 
 			this.#_menus.tray.on('click', 
-				() => onClick || App.windows.get('main').show()
+				() => {
+					if (onClick) return onClick
+					const win = App.windows.get('main')
+					win.show()
+					win.center()
+				}
 			)
 			this.#_menus.tray.on('balloon-click', 
-				() => onBalloon || App.windows.get('main').show()
+				() => {
+					if(onBalloon) return onBalloon
+					const win = App.windows.get('main')
+					win.show()
+					win.center()
+				}
 			)
-
-			} catch (e) {console.log(e)}
+		} catch (e) {console.log(e)}
 
 		return this.#_menus.tray
 	}

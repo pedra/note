@@ -8,7 +8,11 @@ const menu = [
 	{
         label: 'Abrir Note',
         icon: App.path.view + '/img/tray/icon16.png',
-		click: () => App.windows.get('main').show()
+		click: () => {
+			const win = App.windows.get('main')
+			win.show()
+			win.center()
+		}
     }, {
         label: 'Site da Aplicação',
         icon: App.path.view + '/img/tray/h.png',

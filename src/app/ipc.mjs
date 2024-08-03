@@ -19,6 +19,8 @@ export default class Ipc {
 		ipcMain.handle('ping', this.ping)
 		ipcMain.handle('close', this.close)
 		ipcMain.handle('appExit', this.appExit)
+
+		ipcMain.handle('wins', this.wins)
 				// Next received event ...
 	}
 
@@ -50,6 +52,10 @@ export default class Ipc {
 	async appExit() {
 		console.log('appExit')
 		app.exit()
+	}
+
+	async wins() {
+		console.log('wins: ', App.windows.wins)
 	}
 
 
