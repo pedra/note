@@ -1,13 +1,20 @@
-import { app, shell } from 'electron'
+import { app, shell, nativeImage } from 'electron'
 import App from '../../app.mjs'
+import FileManager from '../../module/file/manager.mjs'
+import NoteManager from '../../module/note/manager.mjs'
 
+const ICO = App.path.view + '/img/ico/16'
+const IMG = App.path.view + '/img'
 const menu = [
     {
         label: '&Arquivo',
         submenu: [
-            { label: 'Diretório base' },
+			{ label: 'Diretório base', 
+				icon: ICO + '/bookmark_manager.png', 
+				click: () => FileManager.setBaseDirectory() 
+			},
             { type: 'separator' },
-            { label: 'Salvar backup', enabled: false },
+			{ label: 'Salvar backup', icon: ICO + '/database.png' },
             { label: 'Carregar backup', enabled: false },
 			{ 
 				label: 'Overlay', 
@@ -33,17 +40,17 @@ const menu = [
 					])
 				}
 			},
-            { label: 'Explorador de arquivo' },
+			{ label: 'Explorador de arquivo', icon: ICO + '/folder_open.png', click: () => FileManager.show() },
             { type: 'separator' },
-            { label: 'Fechar janela', role: 'close' },
+			{ label: 'Close', role: 'close', icon: ICO + '/close.png' },
             {
-                label: 'Desligar a Aplicação',
-				icon: App.path.view + '/img/tray/x.png',
+                label: 'Poweroff',
+				icon: ICO + '/power_settings_new.png',
                 click: () => app.exit()
             }
         ]
     }, {
-        label: '&Usuário',
+        label: '&Auth',
         submenu: [
             { label: 'Criar usuário' },
             { label: 'Resetar senha' },
@@ -53,7 +60,7 @@ const menu = [
             { label: 'Visualizar usuários do sistema' }
         ]
     }, {
-        label: '&Mensagens',
+        label: '&Message',
         submenu: [
             { label: 'Criar mensagem para todos' },
             { label: 'Ver mensagens por usuário' },
@@ -64,14 +71,25 @@ const menu = [
             { label: 'Visualizar chat em tempo real', enabled: false },
             { label: 'Chat em modo espião', enabled: false }
         ]
-    }, {
-        label: '&Relatório',
+	}, {
+		label: '&Note',
+		submenu: [
+			{ label: 'Search', icon: ICO + '/search.png', click: () => NoteManager.show() },
+			{ type: 'separator' },
+			{ label: 'Add node', icon: ICO + '/docs_add_on.png' },
+			{ label: 'Add audio annotation', icon: ICO + '/mic.png' },
+			{ type: 'separator' },
+			{ label: 'Import backup', icon: ICO + '/upload.png' },
+			{ label: 'Export backup', icon: ICO + '/download.png' }
+		]
+	}, {
+        label: '&Report',
         submenu: [
-            { label: 'Mensagens por usuário' },
+            { label: 'Mensagens por usuário', icon: ICO + '/bar_chart.png'  },
             { type: 'separator' },
-            { label: 'Downloads por usuário' },
-            { label: 'Uploads por usuário' },
-            { label: 'Login/acessos por usuário' }
+			{ label: 'Downloads por usuário', icon: ICO + '/earthquake.png'  },
+            { label: 'Uploads por usuário', icon: ICO + '/bar_chart.png'  },
+            { label: 'Login/acessos por usuário', icon: ICO + '/bar_chart.png'  }
         ]
     }, {
         label: '&Electronizer',

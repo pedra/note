@@ -1,4 +1,5 @@
-import { app, globalShortcut, screen } from 'electron'
+import { app, globalShortcut, screen, nativeTheme } from 'electron'
+import { Config } from './db/config.mjs'
 import Windows from './windows.mjs'
 import Menus from './menus/menus.mjs'
 import Server from '../net/server.mjs'
@@ -19,6 +20,7 @@ class App {
 		db: null,
 		net: null,
 	}
+	config = null
 	windows = null
 	menus = null
 	server = null
@@ -35,6 +37,7 @@ class App {
 		this.menus = Menus.getInstance()
 		this.server = Server.getInstance()
 		this.ipc = new Ipc()
+
 		app.on('ready', (e) => this.init(e));
 
 		if (!app.requestSingleInstanceLock()) app.quit()
@@ -56,11 +59,12 @@ class App {
 	}
 
 	async init(e) {
+		this.config = await (Config.getInstance()).load()
 		this.server.init(null, null, null, false).start()
-		this.windows.create('main', { // no frame window
-			titleBarStyle: 'hidden',
-			titleBarOverlay: true,
-		})
+		this.windows.create('main')//, { // no frame window
+			//titleBarStyle: 'hidden',
+			//titleBarOverlay: true,
+		//})
 
 		// Menus
 		this.menus.loadTray()
@@ -98,6 +102,14 @@ class App {
 		})
 
 
+		// Config TESTE
+		const config = await this.config.getItem('appname')
+		console.log('Config: ', config)
+		this.config.set('appname', 'Billxx Tools')
+		await this.config.save()
+
+
+		console.log('Config 2: ', await this.config.getItem('appname'), this.path.db)
 
 
 		/*  TODO: #### MOVER PARA OUTRO ARQUIVO 🟡🟡🟡🟡🟡🟡🟡
