@@ -6,7 +6,7 @@ class Windows {
 	static instance = null
 	option = {}
 	config = {
-		width: 480,
+		width: 720,
 		minWidth: 370,
 		maxWidth: 1800,
 		height: 720,
@@ -109,7 +109,7 @@ class Windows {
 
 	build(name, option = {}) {
 
-		this.config.icon = App.path.view + '/img/icon.png' //TEMP DELETE - copy to constructor
+		this.config.icon = App.path.public + '/img/icon.png' //TEMP DELETE - copy to constructor
 
 		const config = {}
 		for (const i in this.config) {
@@ -126,7 +126,7 @@ class Windows {
 		if (option['devTools']) win.webContents.openDevTools()
 
 		// Carrega o arquivo HTML da janela.
-		win.loadFile(App.path.view + `/html/${name}.html`)
+		win.loadFile(App.path.page + `/${name}.html`)
 
 		// Mostra a janela
 		win.once('ready-to-show', () => win.show())

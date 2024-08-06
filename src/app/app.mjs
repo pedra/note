@@ -2,7 +2,7 @@ import { app, globalShortcut, screen, nativeTheme } from 'electron'
 import { Config } from './db/config.mjs'
 import Windows from './windows.mjs'
 import Menus from './menus/menus.mjs'
-import Server from '../net/server.mjs'
+import LAN from './lan.mjs'
 import path from 'node:path'
 import Ipc from './ipc.mjs'
 
@@ -18,24 +18,29 @@ class App {
 		assets: null,
 		view: null,
 		db: null,
-		net: null,
+		module: null,
+		public: null,
+		page: null
 	}
 	config = null
 	windows = null
 	menus = null
-	server = null
+	lan = null
 	ipc = null
 
 	constructor() {
 		this.path.app = path.resolve(process.env['ELECTRON_ENV'] == 1 ? './src' : './resources/app.asar')
+		this.path.module = this.path.app + '/module'
+		this.path.public = this.path.app + '/public'
+		this.path.page = this.path.app + '/app/page'
+
 		this.path.view = this.path.app + '/view'
 		this.path.assets = path.resolve('./assets')
 		this.path.db = this.path.assets + '/db/database.db'
-		this.path.net = this.path.app + '/net'
 
 		this.windows = Windows.getInstance()
 		this.menus = Menus.getInstance()
-		this.server = Server.getInstance()
+		this.lan = LAN.getInstance()
 		this.ipc = new Ipc()
 
 		app.on('ready', (e) => this.init(e));
@@ -60,7 +65,7 @@ class App {
 
 	async init(e) {
 		this.config = await (Config.getInstance()).load()
-		this.server.init(null, null, null, false).start()
+		this.lan.init().start()
 		this.windows.create('main')//, { // no frame window
 			//titleBarStyle: 'hidden',
 			//titleBarOverlay: true,

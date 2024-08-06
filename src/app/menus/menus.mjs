@@ -74,7 +74,7 @@ export default class Menus {
 		onBalloon = null
 	) {
 		try {
-			this.#_menus.tray = new Tray(icon || App.path.view + '/img/tray/icon.png')
+			this.#_menus.tray = new Tray(icon || App.path.public + '/img/tray/icon.png')
 			
 			const m = await import(`./tray/${template}.mjs`)
 			this.#_menus.tray.setContextMenu(Menu.buildFromTemplate(m.default))

@@ -19,10 +19,10 @@ export default class Notify {
 			titulo = titulo || 'Notes'
 			mensagem = mensagem || 'Hello Word!'
 
-			tray.setImage(App.path.view + '/img/tray/icon.png')
+			tray.setImage(App.path.public + '/img/tray/icon.png')
 
 			tray.displayBalloon({
-				icon: App.path.view + '/img/tray/icon.png',
+				icon: App.path.public + '/img/tray/icon.png',
 				title: titulo,
 				content: mensagem
 			})

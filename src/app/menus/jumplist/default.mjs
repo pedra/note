@@ -27,7 +27,7 @@ const menu = [
                 title: 'Site da aplicação',
                 program: 'https://billrocha.netlify.app',
                 args: '',
-                iconPath: App.path.view + '/img/ico/burn.ico',
+                iconPath: App.path.public + '/img/ico/burn.ico',
                 iconIndex: 0,
                 description: 'Abrir o site da aplicação na rede local'
             },
@@ -36,7 +36,7 @@ const menu = [
                 title: 'Downloads (internet)',
 				program: 'https://billrocha.netlify.app',
                 args: '',
-                iconPath: App.path.view + '/img/ico/icon.ico',
+                iconPath: App.path.public + '/img/ico/icon.ico',
                 iconIndex: 0,
                 description: 'Abrir navegador na página de downloads do projeto (internet).'
             },{

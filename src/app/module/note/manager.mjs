@@ -3,8 +3,8 @@ import App from '../../app.mjs'
 class manager {
 	static instance = null
 
-	ICO = App.path.view + '/img/ico/16/w'
-	IMG = App.path.view + '/img'
+	ICO = App.path.public + '/img/ico/16/w'
+	IMG = App.path.public + '/img'
 
 	constructor() { }
 
@@ -15,7 +15,7 @@ class manager {
 
 	async show() {
 		const win = App.windows.get('main')
-		win.loadFile(App.path.view + '/html/main.html')
+		win.loadFile(App.path.page + '/main.html')
 	}
 }
 

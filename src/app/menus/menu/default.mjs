@@ -3,8 +3,8 @@ import App from '../../app.mjs'
 import FileManager from '../../module/file/manager.mjs'
 import NoteManager from '../../module/note/manager.mjs'
 
-const ICO = App.path.view + '/img/ico/16'
-const IMG = App.path.view + '/img'
+const ICO = App.path.public + '/img/ico/16'
+const IMG = App.path.public + '/img'
 const menu = [
     {
         label: '&Arquivo',
@@ -20,7 +20,7 @@ const menu = [
 				label: 'Overlay', 
 				click: () => {
 				App.windows.get('main')
-					.setOverlayIcon(App.path.view + '/img/tray/g_old.png', 'Overlay')
+					.setOverlayIcon(App.path.public + '/img/tray/g_old.png', 'Overlay')
 				} 
 			},
 			{
@@ -29,11 +29,11 @@ const menu = [
 					App.windows.get('main').setThumbarButtons([
 						{
 							tooltip: 'button1',
-							icon: App.path.view + '/img/tray/chat32.png',
+							icon: App.path.public + '/img/tray/chat32.png',
 							click() { console.log('button1 clicked') }
 						}, {
 							tooltip: 'button2',
-							icon: App.path.view + '/img/tray/globe32.png',
+							icon: App.path.public + '/img/tray/globe32.png',
 							flags: ['enabled', 'dismissonclick'],
 							click() { console.log('button2 clicked.') }
 						}
@@ -96,7 +96,7 @@ const menu = [
         submenu: [
             {
                 label: 'Github do projeto',
-				icon: App.path.view + '/img/tray/icon16.png',
+				icon: App.path.public + '/img/tray/icon16.png',
                 click: async () => await shell.openExternal('https://github.com/pedra/electronizer')
             }, { label: 'Verificar atualização' },
             {

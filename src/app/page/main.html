@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Hello World!</title>
+	<base href="http://localhost">
+	<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body class="empty">
+	<div class="drag">
+		<img src="/img/icon.png" alt="user photo" />
+		NOTES
+	</div>
+	<header>
+		<div class="container">
+			<div class="user">
+				<div class="avatar">
+					<img src="/img/icon.png" alt="user photo" />
+					<h1>NOTES</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="top-bar">
+				<div class="top-search">
+					<input type="text" placeholder="Search..." id="search">
+					<button><span class="material-symbols-outlined">search</span></button>
+				</div>
+				<div class="top-tools">
+					<button>
+						<span class="material-symbols-outlined" title="Filtre">tune</span></button>
+					<button onclick="wins()">
+						<span class="material-symbols-outlined" title="Add">add</span></button>
+					<button onclick="winClose()" title="Close window">
+						<span class="material-symbols-outlined">close</span></button>
+					<button onclick="appExit()" title="Application quit">
+						<span class="material-symbols-outlined">power_settings_new</span></button>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		&copy; 2024 - Todos os direitos reservados
+	</footer>
+
+	<div class="status-bar">
+		<span id="status-msg">Electronizer application</span>
+		<span id="status-mem"></span>
+		<span id="status-cpu"></span>
+	</div>
+
+	<script>
+		let r = location.href.replace(location.href.split('/').slice(-1)[0], '')
+		import(r + 'utils.js')
+		import(r + 'main.js')
+	</script>
+	<!-- <script src="./../js/utils.js"></script>
+	<script src="./../js/main.js"></script> -->
+</body>
+
+</html>

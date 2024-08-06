@@ -7,7 +7,7 @@ let modal = ''
 const menu = [
 	{
         label: 'Abrir Note',
-        icon: App.path.view + '/img/tray/icon16.png',
+        icon: App.path.public + '/img/tray/icon16.png',
 		click: () => {
 			const win = App.windows.get('main')
 			win.show()
@@ -15,29 +15,29 @@ const menu = [
 		}
     }, {
         label: 'Site da Aplicação',
-        icon: App.path.view + '/img/tray/h.png',
+        icon: App.path.public + '/img/tray/h.png',
         click: () => shell.openExternal('https://billrocha.netlify.app')
     }, {
         label: 'Chat (status)',
-        icon: App.path.view + '/img/tray/a.png',
+        icon: App.path.public + '/img/tray/a.png',
         title: 'Status de visualização do usuário',
         type: 'submenu',
         submenu: [
             {
                 label: 'Ativo',
-                icon: App.path.view + '/img/tray/on.png',
+                icon: App.path.public + '/img/tray/on.png',
                 enabled: true,
                 click: () => (new Notify).show('Status do Chat', "O chat está desativado nessa versão!")
             }, {
                 label: 'Ocupado',
-                icon: App.path.view + '/img/tray/no.png',
+                icon: App.path.public + '/img/tray/no.png',
                 enabled: true,
                 click: () => (new Notify).show('Status do Chat', 'O chat está desativado nessa versão!')
             }, {
                 type: 'separator'
             }, {
                 label: 'Desativado',
-                icon: App.path.view + '/img/tray/off.png',
+                icon: App.path.public + '/img/tray/off.png',
                 enabled: true,
                 click: () => (new Notify).show('Status do Chat', 'O chat está desativado nessa versão!')
             }
@@ -58,7 +58,7 @@ const menu = [
         click: () => {
             let w = App.windows.get('main')
             if (w) {
-                w.setOverlayIcon(App.path.view + '/img/tray/on.png', 'Description for overlay')
+                w.setOverlayIcon(App.path.public + '/img/tray/on.png', 'Description for overlay')
                 App.menus.loadThumbar('main')
                 modal = w.openModal('https://billrocha.netlify.com', { frame: false, width: 360 })
             }
@@ -84,7 +84,7 @@ const menu = [
         click: () => App.windows.clear()
     }, {
         label: 'Desconectar (logout)',
-        icon: App.path.view + '/img/tray/l.png',
+        icon: App.path.public + '/img/tray/l.png',
         click: () => {
             let win = App.windows.get('main')
             win.webContents.send('logout', true)
@@ -94,7 +94,7 @@ const menu = [
         type: 'separator'
     }, {
         label: 'Sair e fechar',
-        icon: App.path.view + '/img/tray/x.png',
+        icon: App.path.public + '/img/tray/x.png',
         click: () => {
             App.windows.clear()
             app.quit()

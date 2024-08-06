@@ -1,0 +1,51 @@
+
+main {
+    display: flex;
+    flex: 1;
+    place-content: center;
+    place-items: center;
+}
+
+.grid {
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    min-height: 300px;
+    min-width: 300px;
+}
+
+.hom-card {
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    place-content: end;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 1rem;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: 0.3s;
+    backdrop-filter: blur(6px);
+	color: #9ab;
+}
+
+.hom-card:hover {
+	background: #fff;
+    box-shadow: 3px 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hom-card span {
+	font-size: 5rem;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	place-content: center;
+	place-items: center;
+	color: #37a;
+
+}
+
+.hom-card h2 {
+	font-weight: 300;
+	font-size: 1.8rem;
+}
