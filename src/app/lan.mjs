@@ -12,7 +12,7 @@ import App from '../app/app.mjs'
 		- O acesso ao core do Electron (/app/app.mjs) é feito internamente por "import"
 
  */
-import Test from './module/test.mjs'
+import Test from '../module/test.mjs'
 
 export default class LAN {
 

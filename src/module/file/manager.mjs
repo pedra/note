@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain, dialog } from 'electron'
-import { Config } from '../../db/config.mjs'
-import App from '../../app.mjs'
+import { Config } from '../../app/db/config.mjs'
+import App from '../../app/app.mjs'
 
 class manager {
 	static instance = null
@@ -40,7 +40,7 @@ class manager {
 
 	async show () {
 		const win = App.windows.get('main')
-		win.loadFile(App.path.public + '/interna/index.html')
+		win.loadFile(App.path.public + '/index.html')
 	}
 }
 

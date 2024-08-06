@@ -26,11 +26,10 @@ const _ = id => document.querySelector(id)
 	setTimeout(() => _('#search').focus(), 200)
 //}
 
-window.showMenu = show => ipcRenderer.invoke('menu', { window: 'about', show }) // ?!?!
 window.winClose = () => ipcRenderer.invoke('close', 'main')
 window.appExit = () => ipcRenderer.invoke('appExit')
 window.wins = () => {
-	__report('Carregando janelas...', true, 1000000000)
+	//__report('Carregando janelas...', true, 1000000000)
 	ipcRenderer.invoke('wins')
 }
 

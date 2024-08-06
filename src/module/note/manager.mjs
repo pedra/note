@@ -1,4 +1,4 @@
-import App from '../../app.mjs'
+import App from '../../app/app.mjs'
 
 class manager {
 	static instance = null

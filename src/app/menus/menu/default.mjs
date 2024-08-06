@@ -1,7 +1,7 @@
 import { app, shell, nativeImage } from 'electron'
 import App from '../../app.mjs'
-import FileManager from '../../module/file/manager.mjs'
-import NoteManager from '../../module/note/manager.mjs'
+import FileManager from '../../../module/file/manager.mjs'
+import NoteManager from '../../../module/note/manager.mjs'
 
 const ICO = App.path.public + '/img/ico/16'
 const IMG = App.path.public + '/img'

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Sample Electronizer application">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Electronizer : Desktop</title>
+	<base href="http://localhost">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<script defer>
+		let r = location.href.replace(location.href.split('/').slice(-1)[0], '')
+		import(r + 'main.js')
+	</script>
+</head>
+
+<body>
+	<div class="page">
+		<div class="container">
+
+			<h1>Título Nível 1</h1>
+			<h2>Título Nível 2</h2>
+			<h3>Título Nível 3</h3>
+			<h4>Título Nível 4</h4>
+			<h5>Título Nível 5</h5>
+
+			<p>Mussum Ipsum, cacilds vidis litro abertis. Delegadis gente finis, bibendum egestas augue arcu ut est.
+				Sapien in monti palavris qui num significa nadis i pareci latim. In elementis mé pra quem é amistosis
+				quis leo. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.</p>
+
+			<hr>
+
+			<h2>Control</h2>
+			<div class="control">
+				<button type="button">Arquivos</button>
+				<button class="btn-flat" type="button">Mensagens</button>
+				<button type="button">Configuração</button>
+			</div>
+
+			<h2>Control 2</h2>
+			<div class="control">
+				<button type="button">Arquivos</button>
+				<button class="btn-flat" type="button">Mensagens</button>
+				<button type="button">Configuração</button>
+				<button type="button">Arquivos</button>
+				<button class="btn-flat" type="button">Mensagens</button>
+				<button type="button">Configuração</button>
+				<button type="button">Arquivos</button>
+				<button class="btn-flat" type="button">Mensagens</button>
+				<button type="button">Configuração</button>
+			</div>
+
+			<h2>Control Between</h2>
+			<div class="control between border">
+				<button type="button">Arquivos</button>
+				<button class="btn-flat" type="button">Mensagens</button>
+				<button type="button">Configuração</button>
+			</div>
+
+			<h2>Control Right</h2>
+			<div class="control right border">
+				<button type="button">Arquivos</button>
+				<button class="btn-flat" type="button">Mensagens</button>
+				<button type="button">Configuração</button>
+			</div>
+
+			<h2>Checkbox</h2>
+			<div>
+				<input checked type="checkbox" id="example2">
+				<label for="example2">I am checked</label>
+			</div>
+			<div>
+				<input disabled type="checkbox" id="example3">
+				<label for="example3">I am inactive</label>
+			</div>
+			<div>
+				<input checked disabled type="checkbox" id="example4">
+				<label for="example4">I am inactive but still checked</label>
+			</div>
+
+			<div>
+				<input type="checkbox" id="examplex">
+				<label for="examplex">I am inactive but still checked</label>
+			</div>
+
+			<h2>Radios</h2>
+			<div>
+				<input id="radio5" type="radio" name="first-example">
+				<label for="radio5">Yes</label>
+			</div>
+			<div>
+				<input id="radio6" type="radio" name="first-example">
+				<label for="radio6">No</label>
+			</div>
+
+			<h2>GroupBox</h2>
+			<fieldset>
+				<legend>Today's mood</legend>
+				<div>
+					<input id="radio17" type="radio" name="fieldset-example2">
+					<label for="radio17">Claire Saffitz</label>
+				</div>
+				<div>
+					<input id="radio18" type="radio" name="fieldset-example2">
+					<label for="radio18">Brad Leone</label>
+				</div>
+				<div>
+					<input id="radio19" type="radio" name="fieldset-example2">
+					<label for="radio19">Chris Morocco</label>
+				</div>
+				<div>
+					<input id="radio20" type="radio" name="fieldset-example2">
+					<label for="radio20">Carla Lalli Music</label>
+				</div>
+			</fieldset>
+
+			<h2>Text</h2>
+			<div>
+				<label for="text21">Occupation</label>
+				<input id="text21" type="text" />
+			</div>
+
+			<div>
+				<label for="text22">Address (Line 1)</label>
+				<input id="text22" type="text" />
+			</div>
+			<div>
+				<label for="text23">Address (Line 2)</label>
+				<input id="text23" type="text" />
+			</div>
+
+			<div>
+				<label for="text24">Additional notes</label>
+				<textarea id="text24" rows="8"></textarea>
+			</div>
+
+			<h2>Slider</h2>
+			<div class="range">
+				<label for="range25">Volume:</label>
+				<label for="range26">Low</label>
+				<input id="range26" type="range" min="1" max="11" value="5" />
+				<label for="range27">High</label>
+			</div>
+
+			<div class="range">
+				<label for="range28">Cowbell</label>
+				<input id="range28" type="range" min="1" max="30" step="1" value="2" />
+			</div>
+
+			<h2>Select</h2>
+			<select>
+				<option>5 - Incredible!</option>
+				<option>4 - Great!</option>
+				<option>3 - Pretty good</option>
+				<option>2 - Not so great</option>
+				<option>1 - Unfortunate</option>
+			</select>
+
+			<select>
+				<option>5 - Incredible!</option>
+				<option>4 - Great!</option>
+				<option selected>3 - Pretty good</option>
+				<option>2 - Not so great</option>
+				<option>1 - Unfortunate</option>
+			</select>
+
+			<h2>Table</h2>
+			<table class="zebra">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Jane</td>
+						<td>Doe</td>
+						<td>sample@example.org</td>
+						<td><i class="material-icons">visibility</i>
+							<i class="material-icons">edit</i>
+							<i class="material-icons">clear</i>
+						</td>
+					</tr>
+					<tr>
+						<td>Jane</td>
+						<td>Doe</td>
+						<td>sample@example.org</td>
+						<td><i class="material-icons">visibility</i>
+							<i class="material-icons">edit</i>
+							<i class="material-icons">clear</i>
+						</td>
+					</tr>
+					<tr>
+						<td>Jane</td>
+						<td>Doe</td>
+						<td>sample@example.org</td>
+						<td><i class="material-icons">visibility</i>
+							<i class="material-icons">edit</i>
+							<i class="material-icons">clear</i>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2>Table Bordered</h2>
+			<table class="border zebra">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Jane</td>
+						<td>Doe</td>
+						<td>sample@example.org</td>
+						<td><i class="material-icons">visibility</i>
+							<i class="material-icons">edit</i>
+							<i class="material-icons">clear</i>
+						</td>
+					</tr>
+					<tr>
+						<td>Jane</td>
+						<td>Doe</td>
+						<td>sample@example.org</td>
+						<td><i class="material-icons">visibility</i>
+							<i class="material-icons">edit</i>
+							<i class="material-icons">clear</i>
+						</td>
+					</tr>
+					<tr>
+						<td>Jane</td>
+						<td>Doe</td>
+						<td>sample@example.org</td>
+						<td><i class="material-icons">visibility</i>
+							<i class="material-icons">edit</i>
+							<i class="material-icons">clear</i>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2>Tree View</h2>
+			<fieldset>
+				<legend>Today's mood</legend>
+				<ul class="tree-view">
+					<li>Table of Contents</li>
+					<li>What is web development?</li>
+					<li>
+						CSS
+						<ul>
+							<li>Selectors</li>
+							<li>Specificity</li>
+							<li>Properties</li>
+						</ul>
+					</li>
+					<li>
+						<details open>
+							<summary>JavaScript</summary>
+							<ul>
+								<li>Avoid at all costs</li>
+								<li>
+									<details>
+										<summary>Unless</summary>
+										<ul>
+											<li>Avoid</li>
+											<li>
+												<details>
+													<summary>At</summary>
+													<ul>
+														<li>Avoid</li>
+														<li>At</li>
+														<li>All</li>
+														<li>Cost</li>
+													</ul>
+												</details>
+											</li>
+											<li>All</li>
+											<li>Cost</li>
+										</ul>
+									</details>
+								</li>
+							</ul>
+						</details>
+					</li>
+					<li>HTML</li>
+					<li>Special Thanks</li>
+				</ul>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="status-bar">
+		<span id="status-msg">Electronizer application</span>
+		<span id="status-mem"></span>
+		<span id="status-cpu"></span>
+	</div>
+</body>
+
+</html>
