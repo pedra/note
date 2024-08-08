@@ -12,35 +12,158 @@
 </head>
 
 <body>
-	<main>
+	<header>
 		<div class="container">
-			<div class="grid">
-				<div class="hom-card">
-					<span class="material-symbols-outlined">
-						folder_open
-					</span>
-					<h2>File</h2>
-				</div>
-				<div class="hom-card">
-					<span class="material-symbols-outlined">
-						group
-					</span>
-					<h2>User</h2>
-				</div>
-				<div class="hom-card">
-					<span class="material-symbols-outlined">
-						edit_note
-					</span>
-					<h2>Note</h2>
-				</div>
-				<div class="hom-card">
-					<span class="material-symbols-outlined">
-						forum
-					</span>
-					<h2>Message</h2>
-				</div>
+			<div class="left">
+				<h1>Application Title</h1>
+			</div>
+
+			<div class="middle">
+				<span data-go="home" class="material-symbols-outlined btn" title="Home">home</span>
+				<span data-go="file" class="material-symbols-outlined btn" title="File">folder_open</span>
+				<span data-go="user" class="material-symbols-outlined btn" title="User">group</span>
+				<span data-go="note" class="material-symbols-outlined btn" title="Note">edit_note</span>
+				<span data-go="message" class="material-symbols-outlined btn" title="Message">forum</span>
+			</div>
+
+			<div class="right">
+				<div class="btn" title="user name - profile"></div>
 			</div>
 		</div>
+	</header>
+	<main>
+		<section class="page pg-home" id="pg-home">
+			<div class="container">
+				<div class="grid">
+					<div class="hom-card" data-go="file">
+						<span class="material-symbols-outlined">
+							folder_open
+						</span>
+						<h2>File</h2>
+					</div>
+					<div class="hom-card" data-go="user">
+						<span class="material-symbols-outlined">
+							group
+						</span>
+						<h2>User</h2>
+					</div>
+					<div class="hom-card" data-go="note">
+						<span class="material-symbols-outlined">
+							edit_note
+						</span>
+						<h2>Note</h2>
+					</div>
+					<div class="hom-card" data-go="message">
+						<span class="material-symbols-outlined">
+							forum
+						</span>
+						<h2>Message</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="page up" id="pg-file">
+			<div class="container">
+				<h1>File ...</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio animi nulla excepturi dignissimos ea
+					voluptatum?
+					Sapiente aliquam eveniet incidunt molestiae pariatur? Quaerat perferendis libero maiores dolorem
+					excepturi
+					possimus odio voluptates.</p>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+				<h2>Sub Título</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt eius.</p>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+					ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+				<h2>Sub Título</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+					modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+					facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+					eius.</p>
+			</div>
+		</section>
+
+		<section class="page left" id="pg-user">
+			<div class="container">
+				<h1>User ...</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio animi nulla excepturi dignissimos ea
+					voluptatum?
+					Sapiente aliquam eveniet incidunt molestiae pariatur? Quaerat perferendis libero maiores dolorem
+					excepturi
+					possimus odio voluptates.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+						ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+					<h2>Sub Título</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+						modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+						facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+						eius.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+						ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+					<h2>Sub Título</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+						modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+						facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+						eius.</p>
+			</div>
+		</section>
+
+		<section class="page right" id="pg-note">
+			<div class="container">
+				<h1>Note ...</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio animi nulla excepturi dignissimos ea
+					voluptatum?
+					Sapiente aliquam eveniet incidunt molestiae pariatur? Quaerat perferendis libero maiores dolorem
+					excepturi
+					possimus odio voluptates.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+						ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+					<h2>Sub Título</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+						modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+						facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+						eius.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+						ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+					<h2>Sub Título</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+						modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+						facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+						eius.</p>
+			</div>
+		</section>
+
+		<section class="page bottom" id="pg-message">
+			<div class="container">
+				<h1>Message ...</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio animi nulla excepturi dignissimos ea
+					voluptatum? Sapiente aliquam eveniet incidunt molestiae pariatur? Quaerat perferendis libero maiores
+					dolorem excepturi possimus odio voluptates.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+						ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+					<h2>Sub Título</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+						modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+						facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+						eius.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio at, enim alias qui rerum fugit, aliquid voluptas
+						ea obcaecati id iure praesentium. Sunt doloribus repellendus nihil facilis porro quod dolor!</p>
+					<h2>Sub Título</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quisquam quam ipsa nobis doloribus, quod molestias at
+						modi voluptatem, harum doloremque facilis, velit debitis et excepturi? Sapiente facilis eius nobis!</p>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus facere eligendi maxime ex ut, minus consequatur
+						facilis! Nisi, architecto exercitationem eveniet delectus voluptatem cupiditate quia! Nihil soluta modi nesciunt
+						eius.</p>
+		</section>
+
 	</main>
 </body>
 

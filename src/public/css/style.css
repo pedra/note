@@ -2,6 +2,8 @@
 @import url(./commum/keyframe.css);
 @import url(./commum/root.css);
 @import url(./commum/layout.css);
+@import url(./commum/header.css);
 @import url(./commum/report.css);
 @import url(./commum/statusbar.css);
+@import url(./commum/page.css);
 @import url(./page/main.css);

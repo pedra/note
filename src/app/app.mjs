@@ -30,7 +30,7 @@ class App {
 
 	constructor() {
 		this.path.app = path.resolve(process.env['ELECTRON_ENV'] == 1 ? './src' : './resources/app.asar')
-		this.path.module = this.path.app + '/app/module'
+		this.path.module = this.path.app + '/module'
 		this.path.public = this.path.app + '/public'
 		this.path.page = this.path.app + '/app/page'
 

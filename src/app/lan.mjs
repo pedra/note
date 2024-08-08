@@ -3,6 +3,7 @@ import systeminformation from 'systeminformation';
 import { createServer } from 'node:http'
 import cors from 'cors'
 import App from '../app/app.mjs'
+import router from '../module/router.mjs'
 
 /**
 	TODO: Rescrever tudo para módulo - back & front
@@ -23,7 +24,7 @@ export default class LAN {
 
 	// ports = [5000, 3000, 8008, 8000, 8080, 80]
 	ports = [80]
-	port = null
+	port = 80
 	site = 'http://localhost'
 	path = {
 		public: null,
@@ -79,16 +80,16 @@ export default class LAN {
 		// this.Express.use('/file', require(this.path.controller + '/file/route'))
 		// this.Express.use('/auth', require(this.path.controller + '/user/route'))
 		// this.Express.use('/user', require(this.path.controller + '/user/route'))
-		// this.Express.use('/msg', require(this.path.controller + '/message/route'))
+		this.Express.use(router)
 
 		this.Express.use('/test', Test) // localhost<:port>/test
 
 		// Search available ports
-		const nc = await systeminformation.networkConnections()
-		this.ports.map(async p => {
-			if (!nc.some(c => c.localPort === String(p))) this.port = p
-		})
-		if (!this.port) throw ('No port available to start LAN')
+		// const nc = await systeminformation.networkConnections()
+		// this.ports.map(async p => {
+		// 	if (!nc.some(c => c.localPort === String(p))) this.port = p
+		// })
+		// if (!this.port) throw ('No port available to start LAN')
 
 		// Creating server ...
 		this.Http = http.listen(this.port)

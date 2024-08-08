@@ -1,9 +1,14 @@
 
-main {
+main:has(.pg-home.on){
     display: flex;
-    flex: 1;
-    place-content: center;
-    place-items: center;
+    flex: 1;	
+	place-content: center;
+	place-items: center;
+}
+
+.pg-home .container {
+	height: 100%;
+	place-content: center;
 }
 
 .grid {
@@ -12,6 +17,7 @@ main {
     gap: 1rem;
     min-height: 300px;
     min-width: 300px;
+	width: 100%;
 }
 
 .hom-card {
@@ -48,4 +54,10 @@ main {
 .hom-card h2 {
 	font-weight: 300;
 	font-size: 1.8rem;
+	margin: 0;
+}
+
+@media screen and (max-width: 590px) {
+	.hom-card span { font-size: 3rem }
+	.hom-card h2 { font-size: 1.4rem }	
 }
