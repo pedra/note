@@ -50,7 +50,7 @@ export default class Ipc {
 	}
 
 	async appExit() {
-		console.log('appExit')
+		// console.log('appExit (src/app/ipc.mjs:53)')
 		app.exit()
 	}
 

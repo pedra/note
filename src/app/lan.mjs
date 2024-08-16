@@ -53,7 +53,7 @@ export default class LAN {
 		/**
 		 * TODO: Implements
 		 * 
-		 * Socket && Controllers ☝☝ vão para ./app/module/..
+		 * Socket && Controllers ☝☝ move to ./app/module/..
 		 * 
 		 * Socket:		./app/module/p2p/socket.mjs
 		 * P2P/WRTC:	./app/module/p2p/wrtc.mjs

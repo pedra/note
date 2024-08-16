@@ -1,14 +1,10 @@
-import { app, globalShortcut, screen, nativeTheme } from 'electron'
+import path from 'node:path'
+import { app, globalShortcut, screen } from 'electron'
 import { Config } from './db/config.mjs'
 import Windows from './windows.mjs'
 import Menus from './menus/menus.mjs'
 import LAN from './lan.mjs'
-import path from 'node:path'
 import Ipc from './ipc.mjs'
-
-// Teste com DB SqLite ------------------------- deletar (begin)
-import { User, Users } from './db/user.mjs'
-// Teste com DB SqLite ------------------------- deletar (end)
 
 class App {
 	static instance = null
@@ -27,6 +23,11 @@ class App {
 	menus = null
 	lan = null
 	ipc = null
+	subscription = {
+		windowAllClosed: [],
+		quit: [],
+		willQuit: []
+	}
 
 	constructor() {
 		this.path.app = path.resolve(process.env['ELECTRON_ENV'] == 1 ? './src' : './resources/app.asar')
@@ -43,8 +44,6 @@ class App {
 		this.lan = LAN.getInstance()
 		this.ipc = new Ipc()
 
-		app.on('ready', (e) => this.init(e));
-
 		if (!app.requestSingleInstanceLock()) app.quit()
 		else app.on('second-instance', () => {
 			const Window = this.windows.get('main')
@@ -53,6 +52,7 @@ class App {
 			Window.focus()
 		})
 
+		app.on('ready', (e) => this.init(e))
 		app.on('window-all-closed', (e) => this.onWindowAllClosed(e))
 		app.on('will-quit', (e) => this.onWillQuit(e)) // Before quit ...
 		app.on('quit', (e) => this.onQuit(e))
@@ -66,10 +66,7 @@ class App {
 	async init(e) {
 		this.config = await (Config.getInstance()).load()
 		this.lan.init().start()
-		this.windows.create('main')//, { // no frame window
-			//titleBarStyle: 'hidden',
-			//titleBarOverlay: true,
-		//})
+		this.windows.create('main')
 
 		// Menus
 		this.menus.loadTray()
@@ -84,7 +81,7 @@ class App {
 		 * TODO: Testar...
 		 */
 
-		// Registra atalho global CTRL + ALT + I
+		// Registra atalho global CTRL + ALT + SPACE
 		globalShortcut.register('Alt+CmdOrCtrl+Space', () => {
 			let cursor = screen.getCursorScreenPoint()
 			let x = cursor.x
@@ -105,98 +102,38 @@ class App {
 			win.show()
 			win.focus()
 		})
-
-
-		// Config TESTE
-		const config = await this.config.getItem('appname')
-		console.log('Config: ', config)
-		this.config.set('appname', 'Billxx Tools')
-		await this.config.save()
-
-
-		console.log('Config 2: ', await this.config.getItem('appname'), this.path.db)
-
-
-		/*  TODO: #### MOVER PARA OUTRO ARQUIVO 🟡🟡🟡🟡🟡🟡🟡
-		
-			* Carregar (load + loadByEmail) ...
-			* Inserir (insert) ...
-			* Atualizar (update) ...
-			* Deletar (delete) ...
-			* Autenticação (login) ...
-		
-			✔ TODOS PASSARAM ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
-		*/
-
-		//  const user = new User()
-
-		//  const login = await user.login('prbr@ymail.com', '12345678')
-		//  console.log("\n\n\nLogin: ", login, "\n\n\n")
-
-		// // Insert
-		// user.clear()
-		// user.set({
-		// 	name: 'Priscila dos Santos Valadão',
-		// 	level: 200,
-		// 	email: 'priscila@email.com',
-		// 	password: '123456'
-		// })
-		// const insert = await user.save()
-		// console.log("\n\nInsert: ", insert, "\n\n\n")
-
-		// user.set('level', 33)
-		// const update = await user.save()
-		// console.log("\n\nUpdate: ", update, "\n\n\n")
-
-		// const load = await user.load(2)
-		// console.log("\n\nLoad: ", load, "\n\n\n")
-
-		// const loadByEmail = await user.loadByEmail('prbr@ymail.com')
-		// console.log("\n\nLoadByEmail: ", loadByEmail, "\n\n\n")
-
-		// user.load(7)
-		// const del = await user.delete()
-		// console.log("\n\nDelete: ", del, "\n\n\n")
-
-		// const unDelete = await user.unDelete()
-		// console.log("\n\nUnDelete: ", unDelete, "\n\n\n")
-
-		/* 
-		
-			TODO: Criar classe Users (plural) e testar. 
-		
-			1 - Deve retornar uma array de User
-			2 - Ter funções de busca (por nome, level, email) 
-			3 - Deve ter busca em campo genérico (campo que ainda não existe nessa tabela USER [future])
-		
-		*/
-
-		//  const users = new Users()
-		//  const list = await users.load()
-		//  console.log("USERS LOAD:", list) // ✔ PASSOU!!
-
-		// const query = await users.search(33, ['level'])
-		// console.log("USERS SEARCH:", query) // ✔ PASSOU!!
-
 	}
 
-	// EVENTS ------------------------------------------------------------------
+	// Todas as janelas foram fechadas - window-all-closed
 	onWindowAllClosed(e) {
 		e.preventDefault()
-		console.log('\nTodas as janelas foram fechadas - window-all-closed\n')
+		this.subscription.windowAllClosed.forEach(a => a.action(e))
 	}
 
+	// Quit application signal
 	onQuit(e) {
-		console.log("---> Quit!")
 		this.menus.getTray().destroy() // Destroy Tray
+		this.subscription.quit.forEach(a => a.action(e))
 	}
 
+	// Antes de fechar tudo - will-quit
 	onWillQuit(e) {
 		e.preventDefault()
-		console.log('Antes de fechar tudo - will-quit')
+		this.subscription.willQuit.forEach(a => a.action(e))
 
 		// Additional tasks before leaving...here!
 		app.exit()
+	}
+
+	// Subscribe an event to 
+	subscribe(event, name, action) {
+		const a = {name, action}
+		this.subscription[event].push(a)
+	}
+
+	// Unsubscribe an event
+	unSubscribe(event, name) {
+		this.subscription[event] = this.subscription[event].filter(b => b.name != name)
 	}
 }
 

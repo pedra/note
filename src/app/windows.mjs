@@ -9,7 +9,7 @@ class Windows {
 		width: 720,
 		minWidth: 370,
 		maxWidth: 1800,
-		height: 720,
+		height: 800,
 		minHeight: 370,
 		center: true,
 		fullscreenable: false,
@@ -42,9 +42,7 @@ class Windows {
 	constructor() {}
 
 	static getInstance() {
-		if (!Windows.instance) {
-			Windows.instance = new Windows()
-		}
+		if (!Windows.instance) Windows.instance = new Windows()
 		return Windows.instance
 	}
 
@@ -136,7 +134,7 @@ class Windows {
 			e.preventDefault()
 			win.hide()
 
-			console.log(`\nminimize | (${name}) trabalhando em background!`)
+			// console.log(`\nminimize | (${name}) trabalhando em background!`)
 		})
 
 		// Ao fechar a janela ...
@@ -144,29 +142,29 @@ class Windows {
 			e.preventDefault()
 			win.hide()
 
-			console.log(`\nclose | (${name}) trabalhando em background!`)
+			// console.log(`\nclose | (${name}) trabalhando em background!`)
 		})
 
 		// Emitido quando a janela é destruída.
 		win.on('closed', e => {
-			console.log(`\nclosed | A Janela (${name}) foi destruída!`)
+			// console.log(`\nclosed | A Janela (${name}) foi destruída!`)
 			this.destroy(name)
 		})
 
 		// Quando mostrar a janela
 		win.on('show', e => {
-			console.log(`\nshow | (${name}) trabalhando com janela!`)
+			// console.log(`\nshow | (${name}) trabalhando com janela!`)
 		})
 
 		// Janela obteve foco
 		win.on('focus', () => {
-			console.log(`\nfocus | A Janela (${name}) obteve foco.`)
+			// console.log(`\nfocus | A Janela (${name}) obteve foco.`)
 			setTimeout(() => !win.isDestroyed() ? win.flashFrame(false) : false, 1500)
 		})
 
 		// Janela perdeu foco
 		win.on('blur', () => {
-			console.log(`\nblur | A Janela (${name}) perdeu foco.`)
+			// console.log(`\nblur | A Janela (${name}) perdeu foco.`)
 			if (!win.isDestroyed()) {
 				win.flashFrame(true)
 				setTimeout(() => !win.isDestroyed() ? win.flashFrame(false) : false, 1500)

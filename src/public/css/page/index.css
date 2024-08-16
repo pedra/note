@@ -4,6 +4,8 @@ main:has(.pg-home.on){
     flex: 1;	
 	place-content: center;
 	place-items: center;
+
+	background: #f9f9f9;
 }
 
 .pg-home .container {
@@ -14,10 +16,12 @@ main:has(.pg-home.on){
 .grid {
 	display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 3rem;
     min-height: 300px;
     min-width: 300px;
 	width: 100%;
+
+	padding-bottom: 3rem;
 }
 
 .hom-card {
@@ -33,11 +37,14 @@ main:has(.pg-home.on){
     transition: 0.3s;
     backdrop-filter: blur(6px);
 	color: #9ab;
+
+	background: transparent;
+	border-radius: 8px;
+	transition: 0.6s;
 }
 
 .hom-card:hover {
-	background: #fff;
-    box-shadow: 3px 4px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 12px 12px rgba(0, 0, 0, 0.05), -10px -10px 10px #fff;
 }
 
 .hom-card span {
