@@ -1,70 +1,70 @@
+.hom-contact {
 
-main:has(.pg-home.on){
-    display: flex;
-    flex: 1;	
-	place-content: center;
-	place-items: center;
-
-	background: #f9f9f9;
 }
 
-.pg-home .container {
-	height: 100%;
-	place-content: center;
-}
-
-.grid {
+.hom-contact nav {
 	display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    min-height: 300px;
-    min-width: 300px;
-	width: 100%;
-
-	padding-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 2fr));
+    gap: 1rem;
 }
 
-.hom-card {
-	position: relative;
-    display: flex;
-    flex-direction: column;
-    place-content: end;
-    place-items: center;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 1rem;
-    aspect-ratio: 1 / 1;
-    cursor: pointer;
-    transition: 0.3s;
-    backdrop-filter: blur(6px);
-	color: #9ab;
-
-	background: transparent;
-	border-radius: 8px;
-	transition: 0.6s;
-}
-
-.hom-card:hover {
-    box-shadow: 8px 12px 12px rgba(0, 0, 0, 0.05), -10px -10px 10px #fff;
-}
-
-.hom-card span {
-	font-size: 5rem;
-	position: absolute;
-	inset: 0;
+.hom-contact nav a {
+	text-decoration: none;
 	display: flex;
-	place-content: center;
-	place-items: center;
-	color: #37a;
+	align-items: center;
+	gap: 0.5rem;
 
+	padding: 0;
+	font-weight: bold;
+
+	backdrop-filter: blur(15px);
+    border: 1px solid #2c3e5026;
+    border-radius: 5px;
+    box-shadow: 0 3px 4px #2c3e5026;
 }
 
-.hom-card h2 {
-	font-weight: 300;
-	font-size: 1.8rem;
-	margin: 0;
+.hom-contact nav a i {
+	color: #2c3e50;
+	font-size: 2rem;
+
+	margin-right: -1px;
+	width: 3rem;
+	height: 3rem;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	line-height: 1rem;	
+	transition: transform 0.2s ease-in-out;
+}
+
+.hom-contact nav a img {
+	width: 3rem;
+    height: 3rem;
+    filter: invert(1);
+    padding: 0.5rem;
+	transition: transform 0.2s ease-in-out;;
+}
+
+.hom-contact nav a:has(img) {
+	display: flex;
+	filter: none;
+}
+
+.hom-contact nav a:hover {
+	transition: .2s;
+	/* background: #2c3e50;
+	color: #fff !important */
+}
+
+.hom-contact nav a:hover img,
+.hom-contact nav a:hover i {
+	transform: scale(1.1);
+	filter: none;
+	background: #2c3e50;
+	color: #fff;
+	border-radius: 5px;
 }
 
 @media screen and (max-width: 590px) {
-	.hom-card span { font-size: 3rem }
-	.hom-card h2 { font-size: 1.4rem }	
+
 }

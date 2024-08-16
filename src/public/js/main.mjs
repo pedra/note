@@ -1,7 +1,5 @@
 import { __log, __avt, __nm, __, __c } from './utils.mjs'
 
-
-
 window.onload = function () {
 
 	// TESTE de importação de módulos ------------------------- deletar
@@ -20,9 +18,8 @@ window.onload = function () {
 	}, 100);
 }
 
-
-
 function page(page = 'home') {
+	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 	__('.page.on').classList.remove('on')
 	__('#pg-' + page).classList.add('on')
 }

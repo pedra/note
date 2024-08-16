@@ -172,7 +172,7 @@ class Windows {
 		})
 
 		// Emitted when an App Command is invoked.
-		win.on('app-command', (e, cmd) => console.log(name + ' - Command: ', cmd))
+		win.on('app-command', (e, cmd) => cmd != 'unknown' && console.log(name + ' - Command: ', cmd, e))
 
 
 		// Public methods ------------------------------------------------- 
