@@ -1,0 +1,134 @@
+.pg-chat {}
+
+.pg-chat .chat {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	flex: 1;
+	margin: 0 0 1rem 0;
+	overflow: auto;
+}
+
+.pg-chat .container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.pg-chat .chat .msg {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.pg-chat .msg .info {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	border-radius: 2rem 8px 0;
+	width: fit-content;
+	backdrop-filter: blur(4px);
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.pg-chat .msg .info svg {
+	width: 32px;
+	aspect-ratio: 1 / 1;
+	height: 100%;
+	border-radius: 50% 0;
+}
+
+.pg-chat .msg .info .data {
+	padding: 0 1rem 0 0;
+	color: #000;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.pg-chat .chat .msg .date {
+	font-size: 0.7rem;
+	color: #000;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.pg-chat .chat .msg .date span {
+	font-size: initial;
+	color: #FF0;
+}
+
+.pg-chat .chat .msg .name {
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: calc(100vw -(32px + 4rem));
+}
+
+.pg-chat .chat .msg .content {
+	backdrop-filter: blur(4px);
+	padding: 0.5rem;
+	background: rgba(255, 255, 255, 0.7);
+	color: #000;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pg-chat .chat .msg.me {
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+.pg-chat .chat .msg.me .content {
+	max-width: 80%;
+	box-shadow: none;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+	padding: 0.5rem;
+	color: #fff;
+	border-radius: 0;
+}
+
+.pg-chat .chat .msg.me .date {
+	background: rgba(0, 0, 0, 0.5);
+	padding: 0.5rem;
+	backdrop-filter: blur(4px);
+	color: #fff;
+}
+
+.pg-chat .form-input-button {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2px;
+	/* background: #fff; */
+	box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pg-chat .form-input-button .container {
+	display: flex;
+}
+
+.pg-chat .form-input-button .send-txt-container {
+	position: relative;
+	width: 100%;
+	padding: 1rem;
+}
+
+.pg-chat .form-input-button .send-txt {
+	position: absolute;
+	display: flex;
+	inset: auto 0 0 0;
+	background: rgba(255, 255, 255, 0.7);
+	align-items: center;
+	padding: 0.5rem;
+	height: 100%;
+	max-height: 4rem;
+	overflow: auto;
+}
+
+.pg-chat .form-input-button button[disabled] {
+	background: #ff0000;
+	cursor: not-allowed;
+}

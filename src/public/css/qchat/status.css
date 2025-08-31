@@ -1,0 +1,41 @@
+.status {
+	padding: 0.5rem;
+	background: rgba(0, 0, 0, 0.3);
+	color: #fff;
+}
+
+
+
+/* OLD 
+
+.status {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 0;
+}
+
+.status-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+
+.status-icon {
+	display: flex;
+	gap: 0.1rem;
+	align-items: center;
+}
+
+.status-item h3 {
+	font-size: 1rem;
+	font-weight: 300;
+	display: flex;
+	align-items: center;
+}
+
+.status-chat-mic {
+	font-size: 1.1rem;
+	color: red;
+} */

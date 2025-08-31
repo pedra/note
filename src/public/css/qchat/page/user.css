@@ -1,0 +1,52 @@
+.pg-user {}
+
+/* Participants */
+.pg-user .participants {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.pg-user .participants .item {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	backdrop-filter: blur(4px);
+	background: rgba(255, 255, 255, 0.7);
+	padding: 0.5rem;
+}
+
+.pg-user .participants .item .name {
+	font-size: 1.2rem;
+}
+
+.pg-user .participants .item .microphone {
+	position: absolute;
+	inset: 5px 0 0 30px;
+	opacity: 0;
+	transform: scale(0.4);
+	transition: 0.3s;
+}
+
+.pg-user .participants .item.speak .microphone {
+	opacity: 1;
+	left: 53px;
+	transform: none;
+}
+
+/* .pg-user .participants .item:not(.me):hover svg {
+	box-shadow: 2px 2px 8px #fff inset, 0 10px 20px rgba(0, 0, 0, 0.3);
+} */
+
+.pg-user .participants .item:not(.me):hover {
+	z-index: 1000;
+}
+
+.pg-user .participants .item:not(.me):hover .name {
+	opacity: 1;
+	transform: none;
+	top: 52px;
+}

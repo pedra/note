@@ -23,6 +23,11 @@ const menu = [
         title: 'Status de visualização do usuário',
         type: 'submenu',
         submenu: [
+			{
+				label: 'QChat',
+				icon: App.path.public + '/img/tray/icon16.png', //TODO: pegar ícone QZumba
+				click: () => App.windows.get('qchat/index').show()
+			}, 
             {
                 label: 'Ativo',
                 icon: App.path.public + '/img/tray/on.png',
@@ -95,10 +100,11 @@ const menu = [
     }, {
         label: 'Sair e fechar',
         icon: App.path.public + '/img/tray/x.png',
-        click: () => {
-            App.windows.clear()
-            app.quit()
-        }
+		click: () => app.exit()
+		// 	click: () => { //OLD
+        //     App.windows.clear()
+        //     app.quit()
+        // }
     }
 ]
 

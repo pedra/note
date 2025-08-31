@@ -1,0 +1,65 @@
+@import url('./login.css');
+@import url('./chat.css');
+@import url('./user.css');
+@import url('./file.css');
+
+/* MENU
+----------------------------------------------------------------------------- */
+header nav.menu {
+		display: flex;
+			align-items: center;
+			justify-content: space-between;
+			list-style: none;
+}
+
+header nav.menu a {
+	text-decoration: none;
+	color: inherit;
+}
+
+header nav.menu li {
+	display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #000;
+		width: 100%;
+		padding: 0.5rem;
+		cursor: pointer;
+}
+
+header nav.menu li.on {
+	background: #fff;
+	color: #000;
+}
+
+header nav.menu li:hover {
+	background: rgba(2555, 255, 255, 0.5);;
+	color: #000;
+}
+
+/* PAGE
+----------------------------------------------------------------------------- */
+
+.pg-box {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.page {
+	z-index: -200;
+	opacity: 0;
+	transition: all 0.3s ease;
+	transform: scale(0.5);
+	position: absolute;
+	inset: 0;
+	/* backdrop-filter: blur(20px); */
+	overflow: auto;
+	display: flex;
+}
+
+.page.on {
+	z-index: 100;
+	opacity: 1;
+	transform: none;
+}

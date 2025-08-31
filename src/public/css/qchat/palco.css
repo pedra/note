@@ -1,0 +1,79 @@
+.palco {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: 1rem 0;
+	border-bottom: 1px solid #bbb;
+}
+
+.palco .palco-mic {
+	width: 42px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+
+.palco .palco-mic img {
+	width: 100%;
+	filter: grayscale(0) blur(1px);
+	opacity: 0.4;
+}
+
+.palco-mic-icon {
+	position: relative;
+}
+
+.palco-mic-icon span {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: -1.5rem;
+	font-size: 1.6rem;
+	color: #890;
+}
+
+.palco-mic-icon:last-child span {
+	left: -1.5rem;
+}
+
+.palco-mic.active img {
+	filter: none;
+	opacity: 1;
+}
+
+.palco-mic.muted img {
+	filter: opacity(0.5) drop-shadow(0 0 0 #F00) !important;
+	opacity: 1 !important;
+}
+
+.palco-mic.muted {
+	filter: opacity(0.5) drop-shadow(0 0 0 #F00) !important;
+	opacity: 1 !important;
+}
+
+.palco-mic.muted .palco-mic-icon span.muted {
+	display: block;
+}
+
+.palco-mic.speak img {
+	filter: drop-shadow(0 4px 6px #ff0) !important;
+	opacity: 1 !important;
+}
+
+.palco-mic.speak .palco-mic-icon span.speak {
+	display: block;
+}
+
+.palco h2 {
+	text-align: center;
+	font-size: 1rem;
+}
+
+.palco .palco-mic .avatar {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	box-shadow: 0 0 9px #fff, 0 0 10px #000;
+	margin: 1rem 0 0.5rem 0;
+}

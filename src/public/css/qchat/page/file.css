@@ -1,0 +1,95 @@
+.pg-file {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1rem;
+	padding: 0;
+}
+
+.pg-file .note {
+	text-align: center;
+	font-size: 1rem;
+	backdrop-filter: blur(4px);
+}
+
+.pg-file .file {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+
+.pg-file .file .file-item img,
+.pg-file .file .file-item iframe {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.2); */
+}
+
+.pg-file .file .file-item a {
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.pg-file .file .file-item {
+	width: 130px;
+	overflow-wrap: anywhere;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* backdrop-filter: blur(60px);
+	background: rgba(255, 255, 255, 0.2); */
+	padding: 0;
+	/* box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2); */
+
+	background: transparent;
+	color: #fff;
+}
+
+
+/* COMPONENT Progress Bar ----------------------------------------------------*/
+.pgb-progress {
+	position: relative;
+	width: 82px;
+	height: 82px;
+	display: flex;
+	color: transparent;
+	border-radius: 50%;
+	background-image: conic-gradient(#ff0 0deg, transparent 0deg);
+	z-index: 200;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+	margin-top: 1rem;
+}
+
+.pgb-label {
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	display: flex;
+	inset: 0;
+	z-index: 220;
+	background: #135;
+	justify-content: center;
+	align-items: center;
+}
+
+.pgb-label label {
+	font-size: 1.2rem;
+	color: #ffc;
+}
+
+.pgb-data {
+	padding: 0.5rem;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	backdrop-filter: blur(10px);
+	background: rgba(0, 0, 0, 0.3);
+}

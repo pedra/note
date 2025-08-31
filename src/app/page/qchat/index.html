@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<base href="http://localhost">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	
+	<link rel="stylesheet" href="/css/qchat/style.css">
+	
+	<script src="/js/lib/FileBufferReader-min.js"></script>
+	<script src="/js/lib/socket.io.js"></script>
+	<script src="/js/qchat/main_wrtc.js" type="module" defer></script>
+
+	<script>
+		window.onload = () => {
+			const counter = document.getElementById('counter')
+			counter.innerText = 0
+
+			setInterval(() => {
+				counter.innerText = parseInt(counter.innerText) + 1
+			}, 1000)
+		}
+	</script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="container">
+				<h1>Parlatory <span id="counter"></span></h1>
+				<nav class="menu">
+					<li data-page="login" class="on">Home</li>
+					<li data-page="chat">Chat</li>
+					<li data-page="user">Users</li>
+					<li data-page="file">Files</li>
+				</nav>
+			</div>
+		</header>
+	
+		<main>
+			<div class="pg-box">
+				<div class="page pg-login" id="pg-login">
+					<div class="container">
+						<h1>Criar um controller para o LOGIN!</h1>
+						<h2>Observar a inicialização do login, quando clicar em "Login" no Menu</h2>
+						<div class="login-form">
+							<div class="form-element">
+								<label for="login-name">display name</label>
+								<input type="text" id="login-name">
+							</div>
+	
+							<div class="form-element">
+								<div class="avatar" id="login-avatar"></div>
+								<label>click on an avatar to enter</label>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class="page pg-chat on" id="pg-chat">
+					<div class="container">
+						<div class="control">
+							<button id="audio_btn">Add Audio</button>
+							<button id="participants_btn">Show Participants</button>
+							<button id="join_btn">Join</button>
+							<button id="open_btn">Open</button>
+							<button id="close_btn">Close</button>
+							<button id="openOrJoin_btn">Open Or Join</button>
+						</div>
+	
+						<div id="audio" class="audio"></div>
+						<div class="chat" id="chat"></div>
+	
+						<div class="form-input-button">
+							<div class="send-txt-container">
+								<div class="send-txt" id="send-txt" contenteditable="true"></div>
+							</div>
+							<button id="send_btn">Send</button>
+							<button id="file_btn">File</button>
+						</div>
+						<div class="status" id="status"></div>
+					</div>
+				</div>
+	
+				<div class="page pg-file" id="pg-file">
+					<div class="container">
+						<h1>Files</h1>
+						<div class="note">Files will not be available after the session ends.</div>
+						<div class="file" id="file"></div>
+					</div>
+				</div>
+	
+				<div class="page pg-user" id="pg-user">
+					<div class="container">
+						<h1>User</h1>
+						<div class="participants" id="participants"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+	
+	</html>

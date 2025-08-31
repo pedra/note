@@ -2,6 +2,7 @@ import { app, shell, nativeImage } from 'electron'
 import App from '../../app.mjs'
 import FileManager from '../../../module/file/manager.mjs'
 import NoteManager from '../../../module/note/manager.mjs'
+import QchatManager from '../../../module/qchat/manager.mjs'
 
 const ICO = App.path.public + '/img/ico/16'
 const IMG = App.path.public + '/img'
@@ -64,6 +65,8 @@ const menu = [
         submenu: [
             { label: 'Criar mensagem para todos' },
             { label: 'Ver mensagens por usuário' },
+			{ label: 'QChat', icon: ICO + '/chat.png', click: () => App.windows.get('qchat/index').show() },
+			{ label: 'QChat - hide', icon: ICO + '/close.png', click: () => App.windows.get('qchat/index').hide() },
             { type: 'separator' },
             { label: 'Enviar mensagem PUSH', enabled: false },
             { label: 'Abrir notificações' },

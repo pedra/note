@@ -6,6 +6,9 @@ import Menus from './menus/menus.mjs'
 import LAN from './lan.mjs'
 import Ipc from './ipc.mjs'
 
+// Pages
+import QchatManager from '../module/qchat/manager.mjs'
+
 class App {
 	static instance = null
 	tray = null
@@ -66,7 +69,8 @@ class App {
 	async init(e) {
 		this.config = await (Config.getInstance()).load()
 		this.lan.init().start()
-		this.windows.create('main')
+		this.windows.create('main', {show: false})
+		QchatManager.getInstance()
 
 		// Menus
 		this.menus.loadTray()
